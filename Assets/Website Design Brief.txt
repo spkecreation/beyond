@@ -1,0 +1,490 @@
+Website Design Brief
+Design Theme
+
+Modern Minimal • Premium • Motion-Driven • Editorial • Interactive Portfolio
+
+The website should feel clean at first glance but become increasingly immersive as users scroll. Every interaction should have subtle motion, giving the feeling of a high-end creative portfolio rather than a traditional business website.
+
+Overall Design Style
+Ultra clean minimal layout
+Premium editorial typography
+Large whitespace
+Rounded cards (16-24px radius)
+Smooth curved edges everywhere
+Soft shadows (never harsh)
+Modern glass effects only where required
+Large bold headlines
+Black & White base with vibrant Orange accent
+Smooth section transitions
+Luxury scrolling experience
+High FPS animations (60fps)
+Apple + Awwwards inspired motion
+Premium micro interactions
+Cursor aware interactions
+Color Palette
+Primary
+#FFAA00
+
+(Main Brand Orange)
+
+Secondary
+#111111
+
+(Charcoal Black)
+
+Background
+#F7F7F7
+Alternate Background
+#FFFFFF
+Dark Sections
+#0D0D0D
+Text
+Primary:
+#111111
+
+Secondary:
+#6A6A6A
+
+Light:
+#FFFFFF
+Border
+#EAEAEA
+Typography
+
+Heading
+
+Poppins ExtraBold
+Space Grotesk Bold
+Satoshi Bold
+
+Body
+
+Inter
+DM Sans
+
+Numbers
+
+Space Grotesk SemiBold
+Website Sections
+1. Hero Section
+
+Contains
+
+Sticky Navbar
+Large Introduction
+Professional Cutout Image
+CTA Buttons
+Floating Portfolio Label
+Animations
+Fade Up on load
+Character-by-character text reveal
+Orange highlight wipes in
+Image slides from right
+Floating "Portfolio" card gently rotates
+Buttons bounce subtly on hover
+Background grid slowly moves
+Mouse Interaction
+
+Image slightly follows cursor
+
+Rotate max:
+
+6°
+2. Skills Navigation Strip
+
+Horizontal categories
+
+Graphics
+
+Video Editing
+
+3D
+
+UI/UX
+
+HTML
+
+Interaction
+
+Hover
+
+Orange underline grows
+Text enlarges
+Smooth color transition
+
+Click
+
+Smooth scroll to showcase item
+
+Active item remains orange.
+
+3. Showcase Section
+
+Accordion style portfolio.
+
+Only one project category opens at a time.
+
+Opening Animation
+
+Card expands
+
+Height animation
+
+Image fades in
+
+Project thumbnails stagger
+
+Arrow rotates
+
+Orange fills behind content
+
+Duration
+
+600ms
+
+Hover
+
+Project cards
+
+Lift upward
+
+Scale
+
+1.03
+
+Shadow increases
+
+Arrow rotates
+
+Portfolio Preview Interaction
+
+When hovering any project
+
+Image zooms
+
+Overlay appears
+
+View Project button slides upward
+
+Background blur
+
+Title fades upward
+
+Lightbox
+
+Click any project
+
+Open fullscreen
+
+Background blur
+
+Image zoom
+
+Keyboard navigation
+
+Swipe on mobile
+
+ESC closes
+
+About Section
+
+Two cards
+
+Education
+
+Experience
+
+Animations
+
+Cards rise upward
+
+Icons pop
+
+Timeline grows vertically
+
+Logos fade in sequentially
+
+Timeline Animation
+
+Each timeline point
+
+Orange dot scales
+
+Connecting line grows
+
+Year slides
+
+Text fades
+
+Software Icons
+
+Hover
+
+Rotate
+
+Scale
+
+Glow
+
+Tooltip
+
+Testimonials
+
+Horizontal Slider
+
+Animation
+
+Auto slide every
+
+5 seconds
+
+Buttons
+
+Previous
+
+Next
+
+Swipe support
+
+Card hover
+
+Lift
+
+Shadow
+
+Profile image zoom
+
+Contact Section
+
+Dark premium background
+
+Form on left
+
+Content on right
+
+Form Interaction
+
+Input focus
+
+Orange border
+
+Floating labels
+
+Submit
+
+Ripple animation
+
+Success
+
+Green tick animation
+
+Error
+
+Shake animation
+
+Footer
+
+Fade upward
+
+Social icons
+
+Hover
+
+Rotate
+
+Glow
+
+Links
+
+Underline grows
+
+Navigation
+
+Sticky
+
+Transparent initially
+
+After scrolling
+
+Glass background
+
+Blur
+
+Shadow
+
+Logo shrinks slightly
+
+Scroll Effects
+
+Smooth Lenis scrolling
+
+Section snap feeling
+
+Parallax
+
+Depth layers
+
+Fade
+
+Scale
+
+Rotate
+
+Reveal
+
+Every section enters differently.
+
+Cursor Effects
+
+Custom Cursor
+
+Outer Ring
+
+Inner Dot
+
+Hover Buttons
+
+Expand
+
+Hover Images
+
+Orange ring
+
+Hover Cards
+
+Scale
+
+Hover Links
+
+Stretch
+
+Page Transition
+
+Opening
+
+Black overlay slides upward
+
+Logo appears
+
+Homepage fades
+
+Exit
+
+Fade
+
+Scale
+
+Blur
+
+Hover Animations
+
+Buttons
+
+Scale
+
+1.05
+
+Shadow
+
+Orange glow
+
+Cards
+
+Lift
+
+8px
+
+Shadow
+
+Increase
+
+Images
+
+Scale
+
+1.08
+
+Icons
+
+Rotate
+
+15°
+
+Links
+
+Underline grow
+
+Background Effects
+
+Hero
+
+Subtle animated grid
+
+Tiny moving particles
+
+Gradient light sweep
+
+Dark Sections
+
+Noise texture
+
+Very subtle grain
+
+Orange glow behind important elements
+
+Scroll Animations
+
+Every section
+
+Fade Up
+
+Scale
+
+0.96 → 1
+
+Opacity
+
+0 → 100
+
+Stagger
+
+100ms
+
+Mobile Interactions
+
+Bottom drawer menu
+
+Accordion portfolio
+
+Swipe testimonials
+
+Touch ripple
+
+Sticky CTA
+
+Smooth snapping
+
+Motion Style
+
+Every animation should feel:
+
+Soft
+Premium
+Slow enough to notice
+Fast enough to feel responsive
+No abrupt transitions
+Spring-based easing
+Physics-inspired movement
+Fluid interpolation
+Motion-first experience
+Technologies for Animation
+GSAP for timeline-based animations
+Lenis for buttery smooth scrolling
+Framer Motion for React component animations
+ScrollTrigger for scroll-driven reveals
+Lottie for lightweight vector animations (where needed)
+Three.js (optional) for subtle 3D hero effects
+CSS variables + modern transitions for micro-interactions
+Overall User Experience Goal
+
+The website should immediately communicate creativity, professionalism, and attention to detail. It should feel like a premium portfolio where motion enhances the experience without distracting from the work. Every scroll, hover, click, and transition should reinforce a polished, modern identity while keeping navigation intuitive and content easy to explore.

@@ -1,0 +1,3869 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rishabh Raj | Portfolio</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    body {
+        font-family: "Outfit", sans-serif;
+        background-color: white;
+        background: linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.9)), url(assets/Background\ Grid\ SVG.svg);
+        background-position: top;
+        background-size: contain;
+    }
+
+    .navbar {
+        /* border: solid red; */
+        display: grid;
+        grid-template-columns: 1fr auto 1fr;
+        align-items: center;
+        padding: 20px;
+        position: relative;
+    }
+
+    .fill {
+        margin-left: 50px;
+    }
+
+    .btns {
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+    }
+
+    #simplebtn {
+        /* font-size: 1.1rem; */
+        border: none;
+        background-color: transparent;
+        transition: 0.5s;
+        margin: 0px 15px;
+        cursor: pointer;
+        font-family: inherit;
+    }
+
+    .simplebtns {
+        font-size: 1.1rem;
+        border: none;
+        background-color: transparent;
+        font-family: inherit;
+        cursor: pointer;
+    }
+
+    .simplebtns:hover {
+        text-decoration: underline;
+    }
+
+    .simplebtns:active {
+        font-weight: bold;
+    }
+
+    #simplebtn:hover {
+        text-decoration: underline;
+    }
+
+    #simplebtn:active {
+        font-weight: bold;
+    }
+
+    .navctn {
+        display: flex;
+        justify-content: flex-end;
+        margin-right: 50px;
+    }
+
+    /* Hamburger Menu */
+    .hamburger {
+        display: none;
+        flex-direction: column;
+        gap: 5px;
+        background: none;
+        border: none;
+        cursor: pointer;
+        padding: 8px;
+        z-index: 1001;
+        position: relative;
+    }
+
+    .hamburger span {
+        display: block;
+        width: 24px;
+        height: 2px;
+        background: #000;
+        border-radius: 2px;
+        transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+        transform-origin: center;
+    }
+
+    .hamburger.open span:nth-child(1) {
+        transform: translateY(7px) rotate(45deg);
+    }
+
+    .hamburger.open span:nth-child(2) {
+        opacity: 0;
+        transform: scaleX(0);
+    }
+
+    .hamburger.open span:nth-child(3) {
+        transform: translateY(-7px) rotate(-45deg);
+    }
+
+    /* Mobile Nav Drawer */
+    .mobile-nav {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(255,255,255,0.97);
+        backdrop-filter: blur(12px);
+        z-index: 999;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 30px;
+        transform: translateY(-100%);
+        transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .mobile-nav.open {
+        display: flex;
+        transform: translateY(0);
+    }
+
+    .mobile-nav button, .mobile-nav a {
+        font-size: 1.8rem;
+        font-weight: 600;
+        font-family: "Outfit", sans-serif;
+        background: none;
+        border: none;
+        cursor: pointer;
+        color: #000;
+        text-decoration: none;
+        transition: color 0.2s;
+    }
+
+    .mobile-nav button:hover, .mobile-nav a:hover {
+        color: #FF7C00;
+    }
+
+    #blackbtn {
+        font-size: 1.3rem;
+        background-color: black;
+        padding: 8px 16px;
+        color: white;
+        border: transparent solid 2px;
+        transition: 0.25s;
+    }
+
+    #blackbtn a {
+        color: white;
+        text-decoration: none;
+        transition: color 0.25s;
+    }
+
+    #blackbtn:hover {
+        border: black solid 2px;
+        background-color: transparent;
+        color: black;
+    }
+
+    #blackbtn:hover a {
+        color: black;
+    }
+
+    #blackbtn.btn-slim {
+        padding: 4px 16px;
+    }
+
+    .mainhero {
+        display: flex;
+        align-items: flex-end;
+        /* border: solid red; */
+    }
+
+    .hero {
+        /* border: solid red; */
+        padding: 40px 200px 0px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin: 0%;
+        gap: 40px;
+    }
+
+    .herotextblock {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        gap: 0;
+        flex: 1;
+    }
+
+    h1,
+    h4 {
+        margin: 5px 0px;
+    }
+
+    .herotextblock h1 {
+        font-size: 7rem;
+        letter-spacing: -3px;
+        line-height: 90%;
+        /* border: solid red; */
+    }
+
+    .herotextblock h4 {
+        font-weight: 400;
+        font-size: 2rem;
+        opacity: 70%;
+    }
+
+    .herotextblock span {
+        background: linear-gradient(90deg, #FF7C00 0%, #FFB800 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+    }
+
+    .herobtns {
+        margin-top: 20px;
+        display: flex;
+        gap: 10px;
+        flex-wrap: wrap;
+    }
+
+    .herobtns a {
+        padding: 10px;
+    }
+
+    .heroimg {
+        flex: 1;
+        display: flex;
+        justify-content: flex-end;
+        align-items: flex-end;
+        max-width: 50%;
+    }
+
+    .heroimg img {
+        /* border: solid red; */
+        vertical-align: bottom;
+        width: 100%;
+        max-width: 600px;
+    }
+
+    .movingtape {
+        width: 100%;
+        background: #000;
+        color: #fff;
+        overflow: hidden;
+        padding: 18px 0;
+        white-space: nowrap;
+        rotate: -1.5deg;
+    }
+
+    .marquee {
+        display: flex;
+        overflow: hidden;
+    }
+
+    .marquee-content {
+        display: flex;
+        align-items: center;
+        gap: 70px;
+        min-width: max-content;
+        animation: marquee 25s linear infinite;
+    }
+
+    .marquee-content span {
+        background: linear-gradient(90deg, #FF7C00, #FFB800);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        font-size: 1.5rem;
+        font-weight: 700;
+    }
+
+    @keyframes marquee {
+        from {
+            transform: translateX(0);
+        }
+
+        to {
+            transform: translateX(-50%);
+        }
+    }
+
+    .showcase {
+        padding: 70px 200px;
+        background-color: #F2F2F2;
+        overflow-x: hidden;
+    }
+
+    .sectionhead {
+        display: flex;
+        flex-direction: column;
+        /* width: 80%; */
+    }
+
+    .sectionhead h1 {
+        font-size: 3rem;
+        font-weight: 700;
+        letter-spacing: -1px;
+        margin-bottom: 20px;
+    }
+
+    .sectionhead p {
+        font-size: 1.1rem;
+        line-height: 1.6;
+        opacity: 70%;
+    }
+
+    .dropdownservs {
+        margin-top: 70px;
+    }
+
+    .servdropcard {
+        background: #fff;
+        border-radius: 24px;
+        margin: 15px 0;
+        overflow: hidden;
+        transition: .45s;
+        box-shadow: 0 5px 18px rgba(0, 0, 0, .08);
+    }
+
+    .servhead {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 18px 22px;
+    }
+
+    .servnames {
+        display: flex;
+        align-items: center;
+        gap: 18px;
+    }
+
+    .num {
+        color: #ff8c00;
+        font-weight: 700;
+    }
+
+    .servbtn {
+        width: 42px;
+        height: 42px;
+        border: none;
+        border-radius: 12px;
+        background: url("Assets/Redirect Btn SVG.svg") center/cover;
+        transition: .4s;
+        cursor: pointer;
+    }
+
+    .servcontent {
+        display: flex;
+        gap: 18px;
+
+        max-height: 0;
+        width: 100%;
+        opacity: 0;
+
+        overflow-x: auto;
+        overflow-y: hidden;
+        padding: 0 22px;
+        box-sizing: border-box;
+
+        transition:
+            max-height .6s ease,
+            opacity .35s ease,
+            padding .6s ease;
+    }
+
+    /* Custom scrollbar styling for a premium look */
+    .servcontent::-webkit-scrollbar {
+        height: 8px;
+    }
+
+    .servcontent::-webkit-scrollbar-track {
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 10px;
+    }
+
+    .servcontent::-webkit-scrollbar-thumb {
+        background: rgba(255, 255, 255, 0.4);
+        border-radius: 10px;
+        transition: background 0.3s ease;
+    }
+
+    .servcontent::-webkit-scrollbar-thumb:hover {
+        background: rgba(255, 255, 255, 0.7);
+    }
+
+    .portfolio {
+        /* background:#111; */
+        border-radius: 20px;
+        transition: 0.5s;
+        border: solid transparent 2px;
+        height: 250px;
+        width: auto;
+        flex-shrink: 0;
+        box-sizing: border-box;
+    }
+
+    .portfolio img,
+    .portfolio video {
+        height: 100%;
+        width: auto;
+        border-radius: 18px;
+        display: block;
+    }
+
+    .landscape,
+    .portrait {
+        /* Width is determined dynamically by the media's original aspect ratio */
+    }
+
+    /* Hover */
+
+    .servdropcard:hover {
+
+        background: linear-gradient(90deg, #FF7C00, #FFB800);
+        color: #fff;
+
+        transform: translateY(-6px);
+
+        box-shadow: 0 20px 40px rgba(0, 0, 0, .18);
+
+    }
+
+    .servdropcard:hover .num {
+        color: #fff;
+    }
+
+    .servdropcard:hover .servbtn {
+        /* transform:rotate(-45deg) scale(1.08); */
+        background: url(Assets/Redirect\ Btn\ SVG\ white.svg);
+        background-size: cover;
+        background-position: center;
+    }
+
+    .servbtn:hover {
+        rotate: -15deg;
+    }
+
+    .servdropcard:hover .servcontent {
+
+        max-height: 450px;
+        opacity: 1;
+
+        padding: 0 22px 22px;
+
+    }
+
+    .portfolio:hover {
+        border: solid white 2px;
+    }
+
+    .about {
+        background-color: #000;
+        color: white;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        /* border: solid red; */
+    }
+
+    .about .sectionhead {
+        padding: 70px 100px;
+        display: flex;
+        flex-direction: column;
+        gap: 50px;
+        /* border: red solid; */
+    }
+
+    .educationcard {
+        background: linear-gradient(135deg, #FF8400 0%, #FFC107 100%);
+        color: #fff;
+        display: flex;
+        align-items: center;
+    }
+
+    .edcard {
+        width: 70%;
+        margin: 70px;
+    }
+
+    .edhead h1 {
+        font-size: 3rem;
+        font-weight: 700;
+        letter-spacing: -1px;
+        margin-bottom: 70px;
+    }
+
+    .timeline {
+        position: relative;
+        margin-left: 38px;
+    }
+
+    .timeline::before {
+        content: "";
+        position: absolute;
+        left: 11px;
+        top: 10px;
+        bottom: 10px;
+        width: 4px;
+        background: #111;
+        border-radius: 10px;
+    }
+
+    .timeline-item {
+        position: relative;
+        display: flex;
+        gap: 35px;
+        margin-bottom: 60px;
+    }
+
+    .timeline-item:last-child {
+        margin-bottom: 0;
+    }
+
+    .timeline-dot {
+        width: 26px;
+        height: 26px;
+        background: #111;
+        border-radius: 50%;
+        flex-shrink: 0;
+        z-index: 2;
+    }
+
+    .timeline-content {
+        margin-top: -8px;
+    }
+
+    .timeline-top {
+        display: flex;
+        align-items: center;
+        gap: 35px;
+        flex-wrap: wrap;
+    }
+
+    .year {
+        font-size: 1.3rem;
+        font-weight: 700;
+        color: #fff;
+        min-width: 120px;
+    }
+
+    .timeline-top h2 {
+        font-size: 1.3rem;
+        font-weight: 300;
+    }
+
+    .timeline-content p {
+        margin-top: 12px;
+        font-size: 1rem;
+        line-height: 1.45;
+        color: rgba(0, 0, 0, .72);
+        max-width: 420px;
+    }
+
+    .experience {
+        background: #080808;
+        position: relative;
+        overflow: hidden;
+        padding: 90px 0;
+        color: #fff;
+    }
+
+    /* Grid overlay, radial gradient orb, noise, and styling */
+    .experience-bg {
+        position: absolute;
+        inset: 0;
+        z-index: 0;
+        pointer-events: none;
+        background-image:
+            linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+        background-size: 40px 40px;
+    }
+
+    .experience-bg::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.035'/%3E%3C/svg%3E");
+    }
+
+    .experience-bg::after {
+        content: "";
+        position: absolute;
+        top: 30%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 600px;
+        height: 600px;
+        background: radial-gradient(circle, rgba(255, 124, 0, 0.07) 0%, rgba(255, 184, 0, 0) 70%);
+        filter: blur(100px);
+        border-radius: 50%;
+    }
+
+    .exp-top {
+        padding: 0 200px 60px;
+        position: relative;
+        z-index: 1;
+    }
+
+    .exp-top h1 {
+        font-size: 3.5rem;
+        font-weight: 600;
+        letter-spacing: -2px;
+        margin: 0;
+        color: #fff;
+        /* text-transform: uppercase; */
+        display: inline-block;
+    }
+
+    /* Timeline Container and Alternate Grid */
+    .exp-timeline-container {
+        position: relative;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 40px 20px;
+        z-index: 1;
+    }
+
+    /* Real timeline center line */
+    .timeline-line {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 2px;
+        top: 0;
+        bottom: 0;
+        background: linear-gradient(180deg, #FF7C00 0%, #FFB800 60%, rgba(255, 255, 255, 0.05) 100%);
+        transform-origin: top center;
+    }
+
+    .timeline-row {
+        display: grid;
+        grid-template-columns: 1fr 100px 1fr;
+        width: 100%;
+        margin-bottom: 80px;
+        position: relative;
+    }
+
+    .timeline-row:last-child {
+        margin-bottom: 0;
+    }
+
+    .timeline-col-card {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .left-row .timeline-col-card {
+        align-items: flex-end;
+        text-align: right;
+    }
+
+    .right-row .timeline-col-card {
+        align-items: flex-start;
+        text-align: left;
+    }
+
+    .timeline-col-center {
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+        position: relative;
+    }
+
+    /* Node dots sitting exactly on the center line */
+    .center-node {
+        width: 16px;
+        height: 16px;
+        background: #080808;
+        border: 3px solid #FF7C00;
+        border-radius: 50%;
+        z-index: 3;
+        margin-top: 15px;
+        box-shadow: 0 0 10px rgba(255, 124, 0, 0.8);
+        transition: transform 0.3s ease, background-color 0.3s ease;
+    }
+
+    .timeline-row:hover .center-node {
+        transform: scale(1.3);
+        background: #FFB800;
+    }
+
+    .timeline-col-empty {
+        pointer-events: none;
+    }
+
+    /* Badges */
+    .timeline-badge-wrapper {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        margin-bottom: 20px;
+        position: relative;
+    }
+
+    .left-row .timeline-badge-wrapper {
+        flex-direction: row-reverse;
+    }
+
+    .timeline-dot-pulse {
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background: #FF7C00;
+        position: relative;
+        box-shadow: 0 0 8px #FF7C00;
+    }
+
+    .timeline-dot-pulse::after {
+        content: "";
+        position: absolute;
+        inset: -6px;
+        border-radius: 50%;
+        background: rgba(255, 124, 0, 0.4);
+        animation: pulse-ring 2s cubic-bezier(0.215, 0.610, 0.355, 1) infinite;
+    }
+
+    @keyframes pulse-ring {
+        0% {
+            transform: scale(0.5);
+            opacity: 1;
+        }
+
+        80%,
+        100% {
+            transform: scale(2.2);
+            opacity: 0;
+        }
+    }
+
+    .timeline-year {
+        font-size: 1.35rem;
+        font-weight: 800;
+        color: #fff;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .left-row .timeline-year {
+        flex-direction: row-reverse;
+    }
+
+    .badge-present {
+        font-size: 0.7rem;
+        font-weight: 900;
+        background: rgba(255, 124, 0, 0.15);
+        color: #FFB800;
+        border: 1px solid rgba(255, 124, 0, 0.3);
+        padding: 3px 8px;
+        border-radius: 6px;
+        letter-spacing: 1px;
+        animation: present-glow 2s ease-in-out infinite alternate;
+    }
+
+    @keyframes present-glow {
+        0% {
+            box-shadow: 0 0 5px rgba(255, 184, 0, 0.1);
+            border-color: rgba(255, 124, 0, 0.2);
+        }
+
+        100% {
+            box-shadow: 0 0 15px rgba(255, 184, 0, 0.4);
+            border-color: rgba(255, 184, 0, 0.5);
+        }
+    }
+
+    /* Premium Glass Cards */
+    .premium-card {
+        background: rgba(255, 255, 255, 0.02);
+        backdrop-filter: blur(16px);
+        -webkit-backdrop-filter: blur(16px);
+        border: 1px solid rgba(255, 255, 255, 0.06);
+        border-radius: 24px;
+        padding: 35px;
+        width: 100%;
+        max-width: 460px;
+        box-sizing: border-box;
+        position: relative;
+        overflow: hidden;
+        transition: border-color 0.5s ease, box-shadow 0.5s ease, transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+        transform-style: preserve-3d;
+        perspective: 1000px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+    }
+
+    .left-row .premium-card {
+        text-align: left;
+        /* Keep content left-aligned inside cards */
+    }
+
+    .premium-card::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 0;
+        bottom: 0;
+        width: 0;
+        background: linear-gradient(180deg, #FF7C00, #FFB800);
+        transition: width 0.35s cubic-bezier(0.25, 1, 0.5, 1);
+    }
+
+    .premium-card::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: radial-gradient(circle at 80% 80%, rgba(255, 124, 0, 0.08) 0%, transparent 60%);
+        opacity: 0;
+        transition: opacity 0.5s ease;
+        pointer-events: none;
+        z-index: -1;
+    }
+
+    .premium-card:hover {
+        border-color: rgba(255, 255, 255, 0.12);
+        box-shadow: 0 20px 45px rgba(255, 124, 0, 0.12), 0 10px 25px rgba(0, 0, 0, 0.5);
+    }
+
+    .premium-card:hover::before {
+        width: 6px;
+    }
+
+    .premium-card:hover::after {
+        opacity: 1;
+    }
+
+    /* Sweep light animation */
+    .card-sweep {
+        position: absolute;
+        top: 0;
+        left: -150%;
+        width: 50%;
+        height: 100%;
+        background: linear-gradient(90deg, transparent, rgba(255, 124, 0, 0.08), transparent);
+        transform: skewX(-25deg);
+        pointer-events: none;
+        z-index: 2;
+        animation: sweep 6s ease-in-out infinite;
+    }
+
+    @keyframes sweep {
+
+        0%,
+        75% {
+            left: -150%;
+        }
+
+        90%,
+        100% {
+            left: 150%;
+        }
+    }
+
+    /* Card Details */
+    .card-icon-wrap {
+        width: 55px;
+        height: 55px;
+        border-radius: 50%;
+        background: linear-gradient(135deg, #FF7C00 0%, #FFB800 100%);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 25px;
+        box-shadow: 0 5px 15px rgba(255, 124, 0, 0.3);
+        transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+    }
+
+    .card-icon {
+        font-size: 1.45rem;
+        display: inline-block;
+        transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+    }
+
+    .premium-card:hover .card-icon-wrap {
+        transform: rotate(360deg) scale(1.05);
+    }
+
+    .card-title {
+        font-size: 1.6rem;
+        font-weight: 600;
+        color: #fff;
+        margin: 0 0 6px;
+        transition: transform 0.35s ease;
+    }
+
+    .card-company {
+        font-size: 1.1rem;
+        font-weight: 500;
+        color: rgba(255, 255, 255, 0.6);
+        margin: 0 0 15px;
+        transition: transform 0.35s ease;
+    }
+
+    .card-divider {
+        height: 1px;
+        background: linear-gradient(90deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0) 100%);
+        margin: 18px 0;
+    }
+
+    .card-skills-list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .card-skills-list li {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        color: rgba(255, 255, 255, 0.8);
+        font-size: 0.98rem;
+        transition: transform 0.35s ease;
+    }
+
+    .skill-dot {
+        color: #FF7C00;
+        font-size: 0.8rem;
+    }
+
+    .premium-card:hover .card-title,
+    .premium-card:hover .card-company,
+    .premium-card:hover .card-skills-list li {
+        transform: translateX(4px);
+    }
+
+    /* Software Section - Bento Grid */
+    .software-section {
+        background: #060608;
+        padding: 90px 200px;
+        position: relative;
+        overflow: hidden;
+        box-sizing: border-box;
+    }
+
+    .bento-header {
+        max-width: 1200px;
+        margin: 0 auto 50px;
+        position: relative;
+        z-index: 2;
+        opacity: 0;
+        transform: translateY(35px);
+    }
+
+    .bento-header h2 {
+        font-size: 2.8rem;
+        font-weight: 600;
+        letter-spacing: -1.5px;
+        color: #fff;
+        /* text-transform: uppercase; */
+        margin-bottom: 10px;
+    }
+
+    .bento-header p {
+        font-size: 1.05rem;
+        color: rgba(255, 255, 255, 0.4);
+    }
+
+    .bento-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(min(360px, 100%), 1fr));
+        gap: 30px;
+        max-width: 1200px;
+        margin: 0 auto;
+        position: relative;
+        z-index: 2;
+        opacity: 0;
+        transform: translateY(35px);
+    }
+
+    /* Bento Card - App Boot Loader Overlay */
+    .card-boot-overlay {
+        position: absolute;
+        inset: 0;
+        background: #0f0f13;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 26px;
+        z-index: 5;
+        opacity: 1;
+        transition: opacity 0.5s ease, visibility 0.5s ease;
+    }
+
+    .card-boot-content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 14px;
+        width: 100%;
+        text-align: center;
+    }
+
+    .card-boot-logo {
+        width: 48px;
+        height: 48px;
+        background: rgba(255, 255, 255, 0.02);
+        border-radius: 12px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border: 1px solid rgba(255, 255, 255, 0.05);
+        animation: cardBootPulse 1.6s infinite alternate;
+    }
+
+    .card-boot-logo img {
+        width: 65%;
+        height: 65%;
+        object-fit: contain;
+    }
+
+    @keyframes cardBootPulse {
+        0% {
+            box-shadow: 0 0 10px rgba(255, 124, 0, 0.1);
+            border-color: rgba(255, 255, 255, 0.05);
+            transform: scale(0.98);
+        }
+
+        100% {
+            box-shadow: 0 0 20px rgba(255, 124, 0, 0.25);
+            border-color: rgba(255, 124, 0, 0.4);
+            transform: scale(1.04);
+        }
+    }
+
+    .card-boot-title {
+        font-size: 0.85rem;
+        font-weight: 700;
+        color: #fff;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+    }
+
+    .card-boot-track {
+        width: 80%;
+        max-width: 180px;
+        height: 3px;
+        background: rgba(255, 255, 255, 0.06);
+        border-radius: 2px;
+        overflow: hidden;
+    }
+
+    .card-boot-fill {
+        width: 0%;
+        height: 100%;
+        background: linear-gradient(90deg, #FF7C00, #FFB800);
+        border-radius: 2px;
+    }
+
+    .card-boot-status {
+        font-size: 0.65rem;
+        color: rgba(255, 255, 255, 0.45);
+        font-family: monospace;
+        letter-spacing: 0.2px;
+        min-height: 14px;
+        width: 90%;
+    }
+
+    .bento-card {
+        background: #0f0f13;
+        border: 1px solid rgba(255, 255, 255, 0.06);
+        border-radius: 24px;
+        padding: 26px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        min-height: 400px;
+        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+        transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1), border-color 0.4s ease, box-shadow 0.4s ease;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .bento-card:hover {
+        transform: translateY(-8px);
+        border-color: rgba(255, 124, 0, 0.25);
+        box-shadow: 0 20px 45px rgba(255, 124, 0, 0.08), 0 10px 25px rgba(0, 0, 0, 0.5);
+    }
+
+    /* Card Header */
+    .bento-card-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 25px;
+        position: relative;
+        z-index: 2;
+    }
+
+    .bento-card-info {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+    }
+
+    .bento-card-logo {
+        width: 48px;
+        height: 48px;
+        background: rgba(255, 255, 255, 0.03);
+        border-radius: 12px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border: 1px solid rgba(255, 255, 255, 0.06);
+        transition: transform 0.3s ease;
+    }
+
+    .bento-card:hover .bento-card-logo {
+        transform: scale(1.08) rotate(3deg);
+        background: rgba(255, 255, 255, 0.06);
+        border-color: rgba(255, 124, 0, 0.3);
+    }
+
+    .bento-card-logo img {
+        width: 65%;
+        height: 65%;
+        object-fit: contain;
+    }
+
+    .bento-card-title {
+        font-size: 1.2rem;
+        font-weight: 800;
+        color: #fff;
+    }
+
+    .bento-card-mastery {
+        font-size: 0.95rem;
+        font-weight: 800;
+        color: #FF7C00;
+        background: rgba(255, 124, 0, 0.08);
+        padding: 5px 12px;
+        border-radius: 20px;
+        border: 1px solid rgba(255, 124, 0, 0.25);
+    }
+
+    /* Card Playground Area */
+    .bento-card-playground {
+        flex-grow: 1;
+        background: #08080a;
+        border: 1px solid rgba(255, 255, 255, 0.04);
+        border-radius: 16px;
+        min-height: 180px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 15px;
+        position: relative;
+        overflow: hidden;
+        margin-bottom: 20px;
+        z-index: 2;
+    }
+
+    /* Card Footer / Description */
+    .bento-card-footer {
+        position: relative;
+        z-index: 2;
+    }
+
+    .bento-card-desc {
+        font-size: 0.85rem;
+        color: rgba(255, 255, 255, 0.45);
+        line-height: 1.45;
+        margin-bottom: 15px;
+    }
+
+    .bento-card-tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 6px;
+    }
+
+    .bento-card-tag {
+        font-size: 0.72rem;
+        font-weight: 600;
+        padding: 4px 10px;
+        border-radius: 20px;
+        background: rgba(255, 255, 255, 0.03);
+        color: rgba(255, 255, 255, 0.6);
+        border: 1px solid rgba(255, 255, 255, 0.06);
+    }
+
+    .bento-card:hover .bento-card-tag {
+        border-color: rgba(255, 124, 0, 0.15);
+        color: #FFB800;
+    }
+
+    /* AE Scrubber Widget Styles */
+    .widget-ae {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        gap: 15px;
+        align-items: center;
+    }
+
+    .widget-ae-box {
+        width: 75px;
+        height: 75px;
+        border-radius: 16px;
+        background: rgba(255, 255, 255, 0.01);
+        border: 1px dashed rgba(255, 255, 255, 0.12);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+    }
+
+    .widget-ae-circle {
+        width: 25px;
+        height: 25px;
+        border-radius: 50%;
+        background: linear-gradient(135deg, #FF7C00 0%, #FFB800 100%);
+        box-shadow: 0 0 15px rgba(255, 124, 0, 0.4);
+        transition: transform 0.1s ease, opacity 0.1s ease;
+    }
+
+    .widget-ae-input {
+        -webkit-appearance: none;
+        width: 100%;
+        background: rgba(255, 255, 255, 0.06);
+        height: 4px;
+        border-radius: 2px;
+        outline: none;
+        cursor: pointer;
+    }
+
+    .widget-ae-input::-webkit-slider-thumb {
+        -webkit-appearance: none;
+        width: 14px;
+        height: 14px;
+        border-radius: 50%;
+        background: #FF7C00;
+        border: 1.5px solid #fff;
+        cursor: pointer;
+        box-shadow: 0 0 5px rgba(255, 124, 0, 0.5);
+    }
+
+    /* Figma Layout Grid Widget Styles */
+    .widget-figma {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .widget-figma-box {
+        width: 100%;
+        background: #111116;
+        border: 1px solid rgba(255, 255, 255, 0.06);
+        border-radius: 12px;
+        padding: 15px;
+        position: relative;
+        cursor: pointer;
+        overflow: hidden;
+    }
+
+    .figma-connector-line-bento {
+        position: absolute;
+        top: 50%;
+        left: -80px;
+        width: 80px;
+        height: 1.5px;
+        background: #00B2FF;
+        opacity: 0;
+        transition: opacity 0.3s ease, left 0.3s ease;
+        pointer-events: none;
+    }
+
+    .widget-figma-box:hover {
+        border-color: #00B2FF;
+    }
+
+    .widget-figma-box:hover .figma-connector-line-bento {
+        opacity: 1;
+        left: -5px;
+    }
+
+    .figma-element-bento {
+        border: 1px dashed rgba(0, 178, 255, 0.2);
+        padding: 8px;
+        border-radius: 6px;
+        margin-bottom: 8px;
+        font-size: 0.72rem;
+        color: rgba(255, 255, 255, 0.45);
+        position: relative;
+    }
+
+    .figma-element-bento::after {
+        content: attr(data-node);
+        position: absolute;
+        top: -7px;
+        left: 6px;
+        background: #00B2FF;
+        color: #fff;
+        font-size: 0.55rem;
+        padding: 0px 3px;
+        border-radius: 2px;
+        font-weight: 700;
+        opacity: 0;
+        transition: opacity 0.2s ease;
+    }
+
+    .widget-figma-box:hover .figma-element-bento {
+        border-color: #00B2FF;
+    }
+
+    .widget-figma-box:hover .figma-element-bento::after {
+        opacity: 1;
+    }
+
+    .figma-btn-node-bento {
+        background: #FF7C00;
+        border: none;
+        color: #fff;
+        width: 100%;
+        padding: 8px;
+        border-radius: 6px;
+        font-weight: 700;
+        font-size: 0.75rem;
+        cursor: pointer;
+    }
+
+    /* Photoshop Layers Widget Styles */
+    .widget-ps {
+        display: grid;
+        grid-template-columns: 1.2fr 1fr;
+        gap: 15px;
+        width: 100%;
+        height: 100%;
+    }
+
+    .ps-canvas-bento {
+        border-radius: 12px;
+        background: #050507;
+        border: 1px solid rgba(255, 255, 255, 0.06);
+        position: relative;
+        overflow: hidden;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        aspect-ratio: 1;
+    }
+
+    .ps-layer-bento {
+        position: absolute;
+        transition: opacity 0.3s ease;
+    }
+
+    .ps-layer-bg-bento {
+        width: 100%;
+        height: 100%;
+        background: radial-gradient(circle, #2a1503 0%, #050507 70%);
+        z-index: 1;
+    }
+
+    .ps-layer-subject-bento {
+        font-size: 1.5rem;
+        z-index: 2;
+    }
+
+    .ps-layer-glow-bento {
+        width: 80px;
+        height: 80px;
+        background: radial-gradient(circle, rgba(255, 184, 0, 0.22) 0%, transparent 60%);
+        filter: blur(8px);
+        z-index: 3;
+    }
+
+    .ps-panel-bento {
+        background: #111115;
+        border: 1px solid rgba(255, 255, 255, 0.06);
+        border-radius: 10px;
+        padding: 10px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 6px;
+    }
+
+    .ps-row-bento {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        padding: 5px;
+        cursor: pointer;
+    }
+
+    .ps-row-bento input {
+        cursor: pointer;
+        accent-color: #FF7C00;
+    }
+
+    .ps-row-bento span {
+        font-size: 0.72rem;
+        font-weight: 600;
+        color: rgba(255, 255, 255, 0.7);
+    }
+
+    /* Illustrator Bezier SVG Styles */
+    .widget-ai {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .bezier-svg-bento {
+        width: 100%;
+        height: 120px;
+        overflow: visible;
+    }
+
+    .bezier-path {
+        fill: none;
+        stroke: #FF7C00;
+        stroke-width: 3;
+        filter: drop-shadow(0px 0px 8px rgba(255, 124, 0, 0.4));
+    }
+
+    .bezier-line {
+        stroke: rgba(255, 255, 255, 0.2);
+        stroke-width: 1.5;
+        stroke-dasharray: 4;
+    }
+
+    .bezier-anchor {
+        fill: #00B2FF;
+        stroke: #fff;
+        stroke-width: 2;
+        cursor: pointer;
+        transition: transform 0.2s ease;
+    }
+
+    .bezier-handle {
+        fill: #fff;
+        stroke: #00B2FF;
+        stroke-width: 2;
+        cursor: pointer;
+    }
+
+    /* Corel Draw Guidelines Styles */
+    .widget-cdr {
+        width: 100%;
+        height: 100%;
+    }
+
+    .corel-canvas-bento {
+        width: 100%;
+        height: 100%;
+        background: #111116;
+        border: 1px solid rgba(255, 255, 255, 0.06);
+        border-radius: 12px;
+        position: relative;
+        overflow: hidden;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .corel-guide-h-bento {
+        position: absolute;
+        left: 0;
+        right: 0;
+        height: 1px;
+        background: #00FFCC;
+        top: 50%;
+        opacity: 0.4;
+        pointer-events: none;
+    }
+
+    .corel-guide-v-bento {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        width: 1px;
+        background: #00FFCC;
+        left: 50%;
+        opacity: 0.4;
+        pointer-events: none;
+    }
+
+    .corel-shape-bento {
+        width: 45px;
+        height: 45px;
+        border: 1.5px solid #00FFCC;
+        background: rgba(0, 255, 204, 0.08);
+        border-radius: 6px;
+        transition: transform 0.2s ease;
+    }
+
+    /* MS Office Slide Styles */
+    .widget-office {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        gap: 10px;
+    }
+
+    .office-slide-bento {
+        width: 100%;
+        aspect-ratio: 16/9;
+        background: #151520;
+        border: 1px solid rgba(255, 255, 255, 0.06);
+        border-radius: 10px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 15px;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .slide-item-bento {
+        color: #fff;
+        text-align: center;
+        transition: all 0.4s ease;
+        opacity: 0;
+        transform: translateY(10px);
+        position: absolute;
+    }
+
+    .slide-item-bento.active {
+        opacity: 1;
+        transform: translateY(0);
+        position: relative;
+    }
+
+    .slide-item-bento h4 {
+        font-size: 0.95rem;
+        margin-bottom: 4px;
+        color: #FFB800;
+    }
+
+    .slide-item-bento p {
+        font-size: 0.72rem;
+        color: rgba(255, 255, 255, 0.5);
+    }
+
+    .office-btn-bento {
+        background: #fff;
+        color: #111;
+        border: none;
+        border-radius: 6px;
+        padding: 5px 12px;
+        font-size: 0.72rem;
+        font-weight: 700;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        gap: 4px;
+        transition: all 0.2s ease;
+    }
+
+    .office-btn-bento:hover {
+        background: #FF7C00;
+        color: #fff;
+    }
+
+    /* Media query for responsive layout */
+    @media (max-width: 992px) {
+        .exp-top {
+            padding: 0 50px 40px;
+        }
+
+        .software-section {
+            padding: 60px 50px;
+        }
+    }
+
+    @media (max-width: 768px) {
+        .timeline-row {
+            grid-template-columns: 1fr;
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+
+        .timeline-col-empty {
+            display: none;
+        }
+
+        .timeline-col-center {
+            display: none;
+        }
+
+        .left-row .timeline-col-card,
+        .right-row .timeline-col-card {
+            align-items: flex-start;
+            text-align: left;
+        }
+
+        .left-row .timeline-badge-wrapper,
+        .right-row .timeline-badge-wrapper {
+            flex-direction: row;
+        }
+
+        .timeline-line {
+            display: none;
+            /* Hide line on small viewports */
+        }
+
+        .premium-card {
+            max-width: 100%;
+        }
+    }
+
+    /* Clients Section Styles */
+    .clients-section {
+        background: linear-gradient(135deg, #FFB800 0%, #FF7C00 100%);
+        padding: 80px 200px;
+        overflow: hidden;
+        box-sizing: border-box;
+    }
+
+    .client-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 50px;
+        gap: 20px;
+        flex-wrap: wrap;
+    }
+
+    .client-header h1 {
+        font-size: 3rem;
+        font-weight: 700;
+        letter-spacing: -1px;
+        color: #000;
+        margin: 0;
+    }
+
+    .slider-controls {
+        display: flex;
+        gap: 15px;
+        flex-shrink: 0;
+    }
+
+    .slider-btn {
+        width: 50px;
+        height: 50px;
+        background: #fff;
+        border-radius: 12px;
+        border: none;
+        cursor: pointer;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    }
+
+    .slider-btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    }
+
+    .slider-btn:active {
+        transform: translateY(0);
+    }
+
+    .client-cards-container {
+        display: flex;
+        gap: 30px;
+        overflow-x: auto;
+        scroll-behavior: smooth;
+        padding: 10px 0 30px;
+        scrollbar-width: none;
+        /* Firefox */
+        -ms-overflow-style: none;
+        /* IE and Edge */
+    }
+
+    .client-cards-container::-webkit-scrollbar {
+        display: none;
+        /* Chrome, Safari, Opera */
+    }
+
+    .client-card {
+        flex: 0 0 clamp(280px, 80vw, 380px);
+        background: #fff;
+        border-radius: 24px;
+        position: relative;
+        padding: 45px 30px 30px;
+        box-sizing: border-box;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        min-height: 380px;
+        justify-content: space-between;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .client-card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.12);
+    }
+
+    .client-card-top-bar {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 12px;
+        background: #000;
+        border-top-left-radius: 24px;
+        border-top-right-radius: 24px;
+    }
+
+    .client-avatar {
+        width: 70px;
+        height: 70px;
+        background: #E5E5E5;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 1.3rem;
+        font-weight: 700;
+        color: #555;
+        margin-top: 10px;
+    }
+
+    .client-testimonial {
+        font-size: 1.05rem;
+        line-height: 1.6;
+        color: #555;
+        margin: 25px 0;
+        font-style: italic;
+        flex-grow: 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .client-name {
+        font-size: 1.25rem;
+        font-weight: 700;
+        color: #111;
+        margin: 0;
+    }
+
+    /* Floating Particles Styling */
+    .particles-container {
+        position: absolute;
+        inset: 0;
+        pointer-events: none;
+        z-index: 0;
+        overflow: hidden;
+    }
+
+    .particle {
+        position: absolute;
+        width: 4px;
+        height: 4px;
+        background: rgba(255, 124, 0, 0.25);
+        border-radius: 50%;
+        animation: floatUp 8s linear infinite;
+        pointer-events: none;
+    }
+
+    @keyframes floatUp {
+        0% {
+            transform: translateY(105vh) translateX(0) scale(1);
+            opacity: 0;
+        }
+
+        10% {
+            opacity: 0.6;
+        }
+
+        90% {
+            opacity: 0.6;
+        }
+
+        100% {
+            transform: translateY(-5vh) translateX(80px) scale(0.5);
+            opacity: 0;
+        }
+    }
+
+    /* Global responsive section paddings */
+    @media (max-width: 992px) {
+
+        .hero,
+        .showcase,
+        .about .sectionhead,
+        .clients-section,
+        .exp-top,
+        .software-section {
+            padding-left: 50px !important;
+            padding-right: 50px !important;
+        }
+
+        .about {
+            grid-template-columns: 1fr;
+        }
+
+        .educationcard {
+            padding: 40px 0;
+        }
+
+        .edcard {
+            width: 85%;
+            margin: 40px auto;
+        }
+
+        .hero {
+            flex-direction: column-reverse;
+            align-items: center;
+            text-align: center;
+            padding-top: 20px !important;
+            padding-bottom: 0px !important;
+        }
+
+        .heroimg {
+            max-width: 70%;
+            justify-content: center;
+        }
+
+        .herotextblock {
+            align-items: center;
+        }
+
+        .herotextblock h1 {
+            font-size: 5rem;
+        }
+
+        .herotextblock h4 {
+            font-size: 1.5rem;
+        }
+
+        .herobtns {
+            justify-content: center;
+        }
+
+        /* Show hamburger, hide desktop nav */
+        .hamburger {
+            display: flex;
+        }
+
+        .btns, .navctn {
+            display: none;
+        }
+
+        .fill {
+            margin-left: 20px;
+        }
+
+        .navbar {
+            grid-template-columns: 1fr auto;
+            padding: 16px 20px;
+        }
+
+        .fill h1 {
+            font-size: 1.3rem;
+        }
+
+        /* Hide hero image on mobile */
+        .heroimg {
+            display: none;
+        }
+
+        /* Hero text takes full width when image is hidden */
+        .hero {
+            justify-content: center;
+        }
+
+        .herotextblock {
+            max-width: 100%;
+            flex: unset;
+            width: 100%;
+        }
+
+        /* Education accordion collapsed state on mobile */
+        .edu-timeline-wrapper {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease;
+        }
+
+        .edu-timeline-wrapper.open {
+            max-height: 1000px;
+        }
+
+        .edhead {
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            user-select: none;
+        }
+
+        .edu-toggle-icon {
+            font-size: 1.4rem;
+            font-weight: 300;
+            color: rgba(0,0,0,0.5);
+            transition: transform 0.4s ease;
+            line-height: 1;
+        }
+
+        .edhead.open .edu-toggle-icon {
+            transform: rotate(45deg);
+        }
+    }
+
+    @media (max-width: 576px) {
+
+        .hero,
+        .showcase,
+        .about .sectionhead,
+        .clients-section,
+        .exp-top,
+        .software-section {
+            padding-left: 20px !important;
+            padding-right: 20px !important;
+        }
+
+        .herotextblock h1 {
+            font-size: 3.5rem;
+            letter-spacing: -1.5px;
+        }
+
+        .herotextblock h4 {
+            font-size: 1.2rem;
+        }
+
+        .heroimg {
+            max-width: 90%;
+        }
+
+        .sectionhead h1 {
+            font-size: 2.2rem;
+        }
+
+        .sectionhead p {
+            font-size: 0.95rem;
+        }
+
+        .servhead h2 {
+            font-size: 1rem;
+        }
+
+        .client-header h1 {
+            font-size: 2rem;
+        }
+
+        .edcard {
+            width: 90%;
+            margin: 30px auto;
+        }
+
+        .edhead h1 {
+            font-size: 2rem;
+            margin-bottom: 40px;
+        }
+
+        .bento-grid {
+            grid-template-columns: 1fr;
+        }
+
+        .exp-top h1 {
+            font-size: 2.5rem;
+        }
+    }
+
+    /* Contact Section Styling */
+    .contact-section {
+        background: #060608;
+        padding: 100px 200px;
+        position: relative;
+        overflow: hidden;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        box-sizing: border-box;
+    }
+
+    .contact-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 80px;
+    }
+
+    .contact-card-wrapper {
+        flex: 1;
+        opacity: 0;
+        transform: translateY(40px);
+    }
+
+    .contact-card {
+        background: #0f0f13;
+        border: 1px solid rgba(255, 255, 255, 0.06);
+        border-radius: 24px;
+        padding: 40px;
+        box-shadow: 0 20px 45px rgba(0, 0, 0, 0.5);
+        position: relative;
+        overflow: hidden;
+        transition: border-color 0.4s ease, box-shadow 0.4s ease;
+    }
+
+    .contact-card:hover {
+        border-color: rgba(255, 124, 0, 0.3);
+        box-shadow: 0 20px 50px rgba(255, 124, 0, 0.05);
+    }
+
+    .contact-form {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .contact-input-group {
+        position: relative;
+        width: 100%;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+        width: 100%;
+        background: #060608;
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        border-radius: 12px;
+        padding: 18px;
+        font-size: 1rem;
+        color: #fff;
+        font-family: inherit;
+        outline: none;
+        transition: border-color 0.3s ease, box-shadow 0.3s ease, transform 0.2s ease;
+    }
+
+    .contact-form textarea {
+        min-height: 150px;
+        resize: vertical;
+    }
+
+    .contact-form input:focus,
+    .contact-form textarea:focus {
+        border-color: #FF7C00;
+        box-shadow: 0 0 12px rgba(255, 124, 0, 0.25);
+    }
+
+    .contact-btn {
+        background: #FF7C00;
+        color: #fff;
+        border: none;
+        border-radius: 12px;
+        padding: 16px;
+        font-size: 1.1rem;
+        font-weight: 700;
+        cursor: pointer;
+        transition: background 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        align-self: flex-start;
+        padding: 14px 28px;
+    }
+
+    .contact-btn:hover {
+        background: #FF9E33;
+        box-shadow: 0 0 20px rgba(255, 124, 0, 0.3);
+        transform: translateY(-2px);
+    }
+
+    .contact-btn:active {
+        transform: translateY(0);
+    }
+
+    .contact-info {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        opacity: 0;
+        transform: translateY(40px);
+    }
+
+    .contact-info span.query-tag {
+        font-size: 1.1rem;
+        color: rgba(255, 255, 255, 0.4);
+        font-weight: 500;
+        letter-spacing: 0.5px;
+    }
+
+    .contact-info h1 {
+        font-size: 4rem;
+        font-weight: 900;
+        line-height: 100%;
+        color: #fff;
+        margin: 0;
+    }
+
+    .contact-info h1 span {
+        background: linear-gradient(90deg, #FF7C00, #FFB800);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+    }
+
+    .contact-info p.contact-desc {
+        font-size: 1.1rem;
+        line-height: 1.6;
+        color: rgba(255, 255, 255, 0.5);
+        max-width: 480px;
+    }
+
+    /* Footer Section Styling */
+    .footer-section {
+        background: #000;
+        padding: 80px 200px 40px;
+        position: relative;
+        overflow: hidden;
+        box-sizing: border-box;
+    }
+
+    .footer-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        display: flex;
+        justify-content: space-between;
+        gap: 60px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        padding-bottom: 60px;
+        margin-bottom: 30px;
+    }
+
+    .footer-brand {
+        flex: 1.2;
+        display: flex;
+        flex-direction: column;
+        gap: 25px;
+    }
+
+    .footer-brand h2 {
+        font-size: 2.4rem;
+        font-weight: 900;
+        color: #fff;
+        letter-spacing: -1px;
+    }
+
+    .footer-brand p {
+        font-size: 1rem;
+        line-height: 1.6;
+        color: rgba(255, 255, 255, 0.5);
+        max-width: 380px;
+    }
+
+    .footer-socials {
+        display: flex;
+        gap: 15px;
+    }
+
+    .social-icon-btn {
+        width: 44px;
+        height: 44px;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 12px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: rgba(255, 255, 255, 0.6);
+        background: rgba(255, 255, 255, 0.02);
+        transition: transform 0.35s cubic-bezier(0.25, 1, 0.5, 1), border-color 0.35s ease, color 0.35s ease, box-shadow 0.35s ease;
+        text-decoration: none;
+    }
+
+    .social-icon-btn svg {
+        width: 20px;
+        height: 20px;
+        fill: currentColor;
+    }
+
+    .social-icon-btn:hover {
+        color: #FF7C00;
+        border-color: rgba(255, 124, 0, 0.4);
+        transform: scale(1.12) rotate(6deg);
+        box-shadow: 0 0 15px rgba(255, 124, 0, 0.25);
+    }
+
+    .footer-links-grid {
+        flex: 1.5;
+        display: grid;
+        grid-template-columns: 1fr 1.2fr;
+        gap: 40px;
+    }
+
+    .footer-col {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .footer-col h3 {
+        font-size: 1.1rem;
+        font-weight: 700;
+        color: #fff;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+    }
+
+    .footer-links-list {
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .footer-links-list a {
+        font-size: 1rem;
+        color: rgba(255, 255, 255, 0.5);
+        text-decoration: none;
+        position: relative;
+        padding-bottom: 2px;
+        transition: color 0.3s ease;
+        display: inline-block;
+        width: fit-content;
+    }
+
+    .footer-links-list a::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 0%;
+        height: 1px;
+        background: #FF7C00;
+        transition: width 0.3s ease;
+    }
+
+    .footer-links-list a:hover {
+        color: #fff;
+    }
+
+    .footer-links-list a:hover::after {
+        width: 100%;
+    }
+
+    .footer-contact-details {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .footer-contact-item {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        color: rgba(255, 255, 255, 0.6);
+        text-decoration: none;
+        font-size: 0.95rem;
+        transition: color 0.3s ease;
+    }
+
+    .footer-contact-item:hover {
+        color: #fff;
+    }
+
+    .footer-contact-icon {
+        width: 32px;
+        height: 32px;
+        border-radius: 8px;
+        background: rgba(255, 124, 0, 0.08);
+        border: 1px solid rgba(255, 124, 0, 0.15);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: #FF7C00;
+        transition: background 0.3s ease, border-color 0.3s ease;
+    }
+
+    .footer-contact-item:hover .footer-contact-icon {
+        background: rgba(255, 124, 0, 0.15);
+        border-color: rgba(255, 124, 0, 0.3);
+    }
+
+    .footer-contact-icon svg {
+        width: 14px;
+        height: 14px;
+        stroke: currentColor;
+        fill: none;
+    }
+
+    .footer-bottom {
+        max-width: 1200px;
+        margin: 0 auto;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-size: 0.9rem;
+        color: rgba(255, 255, 255, 0.3);
+    }
+
+    /* Media query overrides for Contact & Footer */
+    @media (max-width: 992px) {
+        .contact-section {
+            padding: 80px 50px !important;
+        }
+
+        .contact-container {
+            flex-direction: column;
+            gap: 50px;
+        }
+
+        .contact-info h1 {
+            font-size: 3.2rem;
+        }
+
+        .footer-section {
+            padding: 60px 50px 30px !important;
+        }
+
+        .footer-container {
+            flex-direction: column;
+            gap: 40px;
+        }
+    }
+
+    @media (max-width: 576px) {
+        .contact-section {
+            padding: 60px 20px !important;
+        }
+
+        .contact-card {
+            padding: 24px;
+        }
+
+        .contact-info h1 {
+            font-size: 2.2rem;
+        }
+
+        .contact-btn {
+            width: 100%;
+            text-align: center;
+        }
+
+        .footer-section {
+            padding: 50px 20px 20px !important;
+        }
+
+        .footer-brand h2 {
+            font-size: 1.8rem;
+        }
+
+        .footer-links-grid {
+            grid-template-columns: 1fr;
+            gap: 30px;
+        }
+
+        .footer-bottom {
+            flex-direction: column;
+            gap: 15px;
+            text-align: center;
+        }
+    }
+
+
+    /* Initial hidden states for hero elements to be animated by GSAP */
+    .navbar {
+        opacity: 0;
+        transform: translateY(-25px);
+    }
+
+    .herotextblock h1 {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+
+    .herotextblock h4 {
+        opacity: 0;
+        transform: translateY(25px);
+    }
+
+    .herobtns button,
+    .herobtns a {
+        opacity: 0;
+        transform: translateY(20px);
+        display: inline-block;
+    }
+
+    .heroimg img {
+        opacity: 0;
+        transform: scale(1.1);
+        transform-origin: bottom center;
+    }
+</style>
+
+<body>
+
+
+    <nav class="navbar">
+        <div class="fill">
+            <h1>Hello!</h1>
+        </div>
+
+        <div class="btns">
+            <button id="simplebtn"><a href="#home"></a></button>
+            <button id="simplebtn"><a href="#"></a></button>
+            <button id="simplebtn"><a href="#home"></a></button>
+        </div>
+        <div class="navctn">
+            <button id="blackbtn"><a target="_blank" href="https://api.whatsapp.com/send?phone=919264103787">Contact
+                    Me</a></button>
+        </div>
+        <!-- Hamburger for mobile -->
+        <button class="hamburger" id="hamburgerBtn" aria-label="Open navigation">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+    </nav>
+
+    <!-- Mobile Navigation Drawer -->
+    <div class="mobile-nav" id="mobileNav">
+        <a href="#home" onclick="closeMobileNav()">Home</a>
+        <a href="#explore" onclick="closeMobileNav()">Showcase</a>
+        <a href="#contact" onclick="closeMobileNav()">Contact</a>
+        <a href="Rishabh Raj Graphic Designer Resume.pdf" target="_blank" onclick="closeMobileNav()">Resume</a>
+        <a href="https://api.whatsapp.com/send?phone=919264103787" target="_blank" onclick="closeMobileNav()" style="color:#FF7C00;">WhatsApp Me</a>
+    </div>
+    <div class="mainhero">
+        <div class="hero">
+            <div class="herotextblock">
+                <div class="herotexthead">
+                    <h1>I am <br><span>Rishabh</span> Raj</h1>
+                    <h4>Motion Graphic Designer</h4>
+                </div>
+                <div class="herobtns">
+                    <button id="blackbtn" class="btn-slim"><a href="#explore">Explore</a></button>
+                    <a id="simplebtn" href="Rishabh Raj Graphic Designer Resume.pdf" target="_blank">
+                        <button class="simplebtns">My Updated Resume</button>
+                    </a>
+                </div>
+            </div>
+            <div class="heroimg">
+                <img src="Assets/Hero image.png" alt="error loading the image">
+            </div>
+        </div>
+    </div>
+
+    <div class="movingtape">
+        <div class="marquee">
+            <div class="marquee-content">
+                <span>✦ UI/UX Design</span>
+                <span>✦ Graphic Design</span>
+                <span>✦ Motion Graphics</span>
+                <span>✦ Brand Identity</span>
+                <span>✦ Logo Design</span>
+                <span>✦ Web Design</span>
+                <span>✦ Frontend Development</span>
+                <span>✦ Figma</span>
+                <span>✦ Adobe Illustrator</span>
+                <span>✦ After Effects</span>
+
+                <!-- Duplicate for seamless loop -->
+                <span>✦ UI/UX Design</span>
+                <span>✦ Graphic Design</span>
+                <span>✦ Motion Graphics</span>
+                <span>✦ Brand Identity</span>
+                <span>✦ Logo Design</span>
+                <span>✦ Web Design</span>
+                <span>✦ Frontend Development</span>
+                <span>✦ Figma</span>
+                <span>✦ Adobe Illustrator</span>
+                <span>✦ After Effects</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="showcase" id="explore">
+        <div class="sectionhead">
+            <h1>Showcase</h1>
+            <p>A curated collection of creative work crafted across branding, digital experiences, motion design,
+                presentations, and product interfaces. Every project reflects a commitment to detail, functionality, and
+                impactful visual communication.</p>
+        </div>
+        <div class="dropdownservs">
+
+            <!-- 01 -->
+            <div class="servdropcard">
+                <div class="servhead">
+                    <div class="servnames">
+                        <h2 class="num">01.</h2>
+                        <h2>Graphic Designing</h2>
+                    </div>
+
+                    <button class="servbtn"></button>
+                </div>
+
+                <div class="servcontent">
+                    <div class="portfolio portrait"><img src="Works/Graphics/Graphic 01.png" alt="Graphic Design 1">
+                    </div>
+                    <div class="portfolio portrait"><img src="Works/Graphics/Graphics 02.png" alt="Graphic Design 2">
+                    </div>
+                    <div class="portfolio portrait"><img src="Works/Graphics/03.png" alt="Graphic Design 3"></div>
+                    <div class="portfolio portrait"><img src="Works/Graphics/04.png" alt="Graphic Design 4"></div>
+                    <div class="portfolio portrait"><img src="Works/Graphics/05.png" alt="Graphic Design 5"></div>
+                    <div class="portfolio portrait"><img src="Works/Graphics/06.png" alt="Graphic Design 6"></div>
+                </div>
+            </div>
+
+            <!-- 02 -->
+            <div class="servdropcard">
+                <div class="servhead">
+                    <div class="servnames">
+                        <h2 class="num">02.</h2>
+                        <h2>Motion Graphics & Video Editing</h2>
+                    </div>
+
+                    <button class="servbtn"></button>
+                </div>
+
+                <div class="servcontent">
+                    <div class="portfolio landscape">
+                        <video autoplay muted loop playsinline>
+                            <source src="Works/Motion/Motion graphics 01.mp4" type="video/mp4">
+                        </video>
+                    </div>
+                    <div class="portfolio landscape">
+                        <video autoplay muted loop playsinline>
+                            <source src="Works/Motion/Motion graphics 02.MP4" type="video/mp4">
+                        </video>
+                    </div>
+                    <div class="portfolio landscape">
+                        <video autoplay muted loop playsinline>
+                            <source src="Works/Motion/Motion graphics 03.MP4" type="video/mp4">
+                        </video>
+                    </div>
+                    <div class="portfolio landscape">
+                        <video autoplay muted loop playsinline>
+                            <source src="Works/Motion/Motion graphics 04.MP4" type="video/mp4">
+                        </video>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 03 -->
+            <div class="servdropcard">
+                <div class="servhead">
+                    <div class="servnames">
+                        <h2 class="num">03.</h2>
+                        <h2>3D Modelling</h2>
+                    </div>
+
+                    <button class="servbtn"></button>
+                </div>
+
+                <div class="servcontent">
+                    <div class="portfolio landscape"><img src="Works/3D/01.png" alt="3D Modelling 1"></div>
+                    <div class="portfolio landscape"><img src="Works/3D/02.png" alt="3D Modelling 2"></div>
+                    <div class="portfolio landscape"><img src="Works/3D/03.png" alt="3D Modelling 3"></div>
+                    <div class="portfolio landscape"><img src="Works/3D/04.png" alt="3D Modelling 4"></div>
+                    <div class="portfolio landscape"><img src="Works/3D/05.png" alt="3D Modelling 5"></div>
+                    <div class="portfolio landscape"><img src="Works/3D/06.png" alt="3D Modelling 6"></div>
+                    <div class="portfolio landscape"><img src="Works/3D/7.png" alt="3D Modelling 7"></div>
+                </div>
+            </div>
+
+            <!-- 04 -->
+            <div class="servdropcard">
+                <div class="servhead">
+                    <div class="servnames">
+                        <h2 class="num">04.</h2>
+                        <h2>UI/UX Design</h2>
+                    </div>
+
+                    <button class="servbtn"></button>
+                </div>
+
+                <div class="servcontent">
+                    <div class="portfolio landscape"><img src="Works/UI/UX 01.png" alt="UI/UX Design 1"></div>
+                    <div class="portfolio landscape"><img src="Works/UI/UX 02.png" alt="UI/UX Design 2"></div>
+                    <div class="portfolio landscape"><img src="Works/UI/UX 3.png" alt="UI/UX Design 3"></div>
+                </div>
+            </div>
+
+            <!-- 05 -->
+            <div class="servdropcard">
+                <div class="servhead">
+                    <div class="servnames">
+                        <h2 class="num">05.</h2>
+                        <h2>Product Animation</h2>
+                    </div>
+
+                    <button class="servbtn"></button>
+                </div>
+
+                <div class="servcontent">
+                    <div class="portfolio landscape">
+                        <video autoplay muted loop playsinline>
+                            <source src="Works/Product Anim/Product Animation 01.MP4" type="video/mp4">
+                        </video>
+                    </div>
+                    <div class="portfolio landscape">
+                        <video autoplay muted loop playsinline>
+                            <source src="Works/Product Anim/Product Animation 02.MP4" type="video/mp4">
+                        </video>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="about">
+        <div class="sectionhead">
+            <h1>About</h1>
+            <p>I'm Rishabh Raj, a multidisciplinary designer passionate about creating experiences that combine
+                creativity with functionality. Over the years, I've worked across branding, digital products, motion
+                graphics, web design, and visual storytelling.
+                <br>
+                <br>
+                My approach focuses on understanding problems before designing solutions. Every project begins with
+                research, strategy, and attention to detail, ensuring the final outcome is not only visually impressive
+                but also meaningful and user-centered.
+                <br>
+                <br>
+                Whether it's building a brand identity, designing an intuitive interface, producing engaging animations,
+                or developing modern websites, I strive to create work that leaves a lasting impression.
+            </p>
+        </div>
+        <div class="educationcard">
+            <div class="edcard">
+
+                <div class="edhead" id="eduHead">
+                    <h1>Education</h1>
+                    <span class="edu-toggle-icon" id="eduToggleIcon">+</span>
+                </div>
+
+                <div class="edu-timeline-wrapper" id="eduTimelineWrapper">
+                    <div class="timeline">
+
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+
+                        <div class="timeline-content">
+                            <div class="timeline-top">
+                                <span class="year">2025 - 2027</span>
+                                <h2>MCA, CBSE</h2>
+                            </div>
+
+                            <p>
+                                Mewar University, Chittorgarh,<br>
+                                Rajasthan, India
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+
+                        <div class="timeline-content">
+                            <div class="timeline-top">
+                                <span class="year">2021 - 2024</span>
+                                <h2>BCA, CBSE</h2>
+                            </div>
+
+                            <p>
+                                Langat Singh College, Muzaffarpur,<br>
+                                Bihar, India
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+
+                        <div class="timeline-content">
+                            <div class="timeline-top">
+                                <span class="year">2019 - 2021</span>
+                                <h2>Intermediate, CBSE</h2>
+                            </div>
+
+                            <p>
+                                Indraprastha International School,<br>
+                                Muzaffarpur, Bihar, India
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+
+                        <div class="timeline-content">
+                            <div class="timeline-top">
+                                <span class="year">2018 - 2019</span>
+                                <h2>Matriculation, CBSE</h2>
+                            </div>
+
+                            <p>
+                                Indraprastha International School,<br>
+                                Muzaffarpur, Bihar, India
+                            </p>
+                        </div>
+                    </div>
+
+                </div>
+                </div><!-- end edu-timeline-wrapper -->
+
+            </div>
+        </div>
+    </div>
+
+    <section class="experience">
+        <!-- Background decorative elements -->
+        <div class="experience-bg"></div>
+        <div class="particles-container" id="particlesContainer"></div>
+
+        <div class="exp-top">
+            <h1>Experience</h1>
+        </div>
+
+        <div class="exp-timeline-container">
+            <!-- Central growing timeline line -->
+            <div class="timeline-line" id="timelineLine"></div>
+
+            <!-- Experience Card 1 (Left side on desktop) -->
+            <div class="timeline-row left-row">
+                <div class="timeline-col-card">
+                    <div class="timeline-badge-wrapper">
+                        <span class="timeline-dot-pulse"></span>
+                        <span class="timeline-year">2024 <span class="badge-present">PRESENT</span></span>
+                    </div>
+                    <div class="premium-card">
+                        <div class="card-sweep"></div>
+                        <div class="card-icon-wrap">
+                            <span class="card-icon">💼</span>
+                        </div>
+                        <h2 class="card-title">Graphic Designer</h2>
+                        <h3 class="card-company">SuperSeva Global Services</h3>
+                        <div class="card-divider"></div>
+                        <ul class="card-skills-list">
+                            <li><span class="skill-dot">◉</span> Branding</li>
+                            <li><span class="skill-dot">◉</span> Motion Graphics</li>
+                            <li><span class="skill-dot">◉</span> UI Design</li>
+                            <li><span class="skill-dot">◉</span> Presentations</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="timeline-col-center">
+                    <div class="center-node"></div>
+                </div>
+                <div class="timeline-col-empty"></div>
+            </div>
+
+            <!-- Experience Card 2 (Right side on desktop) -->
+            <div class="timeline-row right-row">
+                <div class="timeline-col-empty"></div>
+                <div class="timeline-col-center">
+                    <div class="center-node"></div>
+                </div>
+                <div class="timeline-col-card">
+                    <div class="timeline-badge-wrapper">
+                        <span class="timeline-dot-pulse"></span>
+                        <span class="timeline-year">2021 <span class="badge-present">PRESENT</span></span>
+                    </div>
+                    <div class="premium-card">
+                        <div class="card-sweep"></div>
+                        <div class="card-icon-wrap">
+                            <span class="card-icon">🎨</span>
+                        </div>
+                        <h2 class="card-title">Freelancer Artist</h2>
+                        <h3 class="card-company">Illustrator & UI Designer</h3>
+                        <div class="card-divider"></div>
+                        <ul class="card-skills-list">
+                            <li><span class="skill-dot">◉</span> Illustration</li>
+                            <li><span class="skill-dot">◉</span> Character Design</li>
+                            <li><span class="skill-dot">◉</span> UI/UX Design</li>
+                            <li><span class="skill-dot">◉</span> Motion Graphics</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Software proficiency section - Interactive Workspace Simulator -->
+        <!-- Software proficiency section - Bento Interactive Grid -->
+        <!-- Software proficiency section - Bento Interactive Grid -->
+        <div class="software-section">
+            <div class="bento-header">
+                <h2>Tools I Use</h2>
+                <p>Hover and interact with each tool workspace below.</p>
+            </div>
+
+            <div class="bento-grid">
+                <!-- After Effects Bento Card -->
+                <div class="bento-card" id="bento-ae">
+                    <!-- Boot Overlay -->
+                    <div class="card-boot-overlay" id="boot-overlay-ae">
+                        <div class="card-boot-content">
+                            <div class="card-boot-logo">
+                                <img src="Assets/All Tools Logos/After effects.png" alt="After Effects">
+                            </div>
+                            <span class="card-boot-title">After Effects</span>
+                            <div class="card-boot-track">
+                                <div class="card-boot-fill" id="boot-fill-ae"></div>
+                            </div>
+                            <span class="card-boot-status" id="boot-status-ae">Loading composition layout...</span>
+                        </div>
+                    </div>
+
+                    <div class="bento-card-header">
+                        <div class="bento-card-info">
+                            <div class="bento-card-logo">
+                                <img src="Assets/All Tools Logos/After effects.png" alt="After Effects">
+                            </div>
+                            <span class="bento-card-title">After Effects</span>
+                        </div>
+                        <span class="bento-card-mastery">95%</span>
+                    </div>
+                    <div class="bento-card-playground">
+                        <div class="widget-ae">
+                            <div class="widget-ae-box">
+                                <div class="widget-ae-circle" id="aeCircleBento"></div>
+                            </div>
+                            <input type="range" class="widget-ae-input" id="aeScrubberBento" min="0" max="100"
+                                value="0">
+                        </div>
+                    </div>
+                    <div class="bento-card-footer">
+                        <p class="bento-card-desc">Industry standard for motion graphics, VFX, and post-production
+                            animation. Used to create cinematic animations and complex compositions.</p>
+                        <div class="bento-card-tags">
+                            <span class="bento-card-tag">Motion Design</span>
+                            <span class="bento-card-tag">Lottie Animations</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Figma Bento Card -->
+                <div class="bento-card" id="bento-figma">
+                    <!-- Boot Overlay -->
+                    <div class="card-boot-overlay" id="boot-overlay-figma">
+                        <div class="card-boot-content">
+                            <div class="card-boot-logo">
+                                <img src="Assets/All Tools Logos/Figma.png" alt="Figma">
+                            </div>
+                            <span class="card-boot-title">Figma</span>
+                            <div class="card-boot-track">
+                                <div class="card-boot-fill" id="boot-fill-figma"></div>
+                            </div>
+                            <span class="card-boot-status" id="boot-status-figma">Syncing design system...</span>
+                        </div>
+                    </div>
+
+                    <div class="bento-card-header">
+                        <div class="bento-card-info">
+                            <div class="bento-card-logo">
+                                <img src="Assets/All Tools Logos/Figma.png" alt="Figma">
+                            </div>
+                            <span class="bento-card-title">Figma</span>
+                        </div>
+                        <span class="bento-card-mastery">90%</span>
+                    </div>
+                    <div class="bento-card-playground">
+                        <div class="widget-figma">
+                            <div class="widget-figma-box">
+                                <div class="figma-connector-line-bento"></div>
+                                <div class="figma-element-bento" data-node="Frame/Header">Interactive Element</div>
+                                <button class="figma-btn-node-bento">Blueprint Node</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bento-card-footer">
+                        <p class="bento-card-desc">Modern vector design tool for collaborative user interface design,
+                            rapid prototyping, and component library construction.</p>
+                        <div class="bento-card-tags">
+                            <span class="bento-card-tag">UI/UX Design</span>
+                            <span class="bento-card-tag">Prototyping</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Photoshop Bento Card -->
+                <div class="bento-card" id="bento-ps">
+                    <!-- Boot Overlay -->
+                    <div class="card-boot-overlay" id="boot-overlay-ps">
+                        <div class="card-boot-content">
+                            <div class="card-boot-logo">
+                                <img src="Assets/All Tools Logos/Photoshop.png" alt="Photoshop">
+                            </div>
+                            <span class="card-boot-title">Photoshop</span>
+                            <div class="card-boot-track">
+                                <div class="card-boot-fill" id="boot-fill-ps"></div>
+                            </div>
+                            <span class="card-boot-status" id="boot-status-ps">Loading brush presets...</span>
+                        </div>
+                    </div>
+
+                    <div class="bento-card-header">
+                        <div class="bento-card-info">
+                            <div class="bento-card-logo">
+                                <img src="Assets/All Tools Logos/Photoshop.png" alt="Photoshop">
+                            </div>
+                            <span class="bento-card-title">Photoshop</span>
+                        </div>
+                        <span class="bento-card-mastery">85%</span>
+                    </div>
+                    <div class="bento-card-playground">
+                        <div class="widget-ps">
+                            <div class="ps-canvas-bento">
+                                <div class="ps-layer-bento ps-layer-bg-bento" id="psLayerBgBento"></div>
+                                <div class="ps-layer-bento ps-layer-glow-bento" id="psLayerGlowBento"></div>
+                                <div class="ps-layer-bento ps-layer-subject-bento" id="psLayerSubjectBento">🎨</div>
+                            </div>
+                            <div class="ps-panel-bento">
+                                <label class="ps-row-bento">
+                                    <input type="checkbox" checked id="toggleGlowBento">
+                                    <span>Glow</span>
+                                </label>
+                                <label class="ps-row-bento">
+                                    <input type="checkbox" checked id="toggleSubjectBento">
+                                    <span>Subject</span>
+                                </label>
+                                <label class="ps-row-bento">
+                                    <input type="checkbox" checked id="toggleBgBento">
+                                    <span>Background</span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bento-card-footer">
+                        <p class="bento-card-desc">Leading graphics editor for creative compositing, raster image
+                            manipulation, texture editing, and professional color grading.</p>
+                        <div class="bento-card-tags">
+                            <span class="bento-card-tag">Compositing</span>
+                            <span class="bento-card-tag">Matte Painting</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Illustrator Bento Card -->
+                <div class="bento-card" id="bento-ai">
+                    <!-- Boot Overlay -->
+                    <div class="card-boot-overlay" id="boot-overlay-ai">
+                        <div class="card-boot-content">
+                            <div class="card-boot-logo">
+                                <img src="Assets/All Tools Logos/Illustrator.png" alt="Illustrator">
+                            </div>
+                            <span class="card-boot-title">Illustrator</span>
+                            <div class="card-boot-track">
+                                <div class="card-boot-fill" id="boot-fill-ai"></div>
+                            </div>
+                            <span class="card-boot-status" id="boot-status-ai">Reading vector paths...</span>
+                        </div>
+                    </div>
+
+                    <div class="bento-card-header">
+                        <div class="bento-card-info">
+                            <div class="bento-card-logo">
+                                <img src="Assets/All Tools Logos/Illustrator.png" alt="Illustrator">
+                            </div>
+                            <span class="bento-card-title">Illustrator</span>
+                        </div>
+                        <span class="bento-card-mastery">95%</span>
+                    </div>
+                    <div class="bento-card-playground">
+                        <div class="widget-ai">
+                            <svg class="bezier-svg-bento" viewBox="0 0 400 120">
+                                <line class="bezier-line" id="bezierLineLeftBento" x1="100" y1="80" x2="100" y2="20" />
+                                <line class="bezier-line" id="bezierLineRightBento" x1="300" y1="80" x2="300" y2="20" />
+                                <path class="bezier-path" id="bezierPathBento" d="M 100 80 C 100 20, 300 20, 300 80" />
+                                <circle class="bezier-anchor" cx="100" cy="80" r="5" />
+                                <circle class="bezier-anchor" cx="300" cy="80" r="5" />
+                                <circle class="bezier-handle" id="handleLeftBento" cx="100" cy="20" r="4.5" />
+                                <circle class="bezier-handle" id="handleRightBento" cx="300" cy="20" r="4.5" />
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="bento-card-footer">
+                        <p class="bento-card-desc">Industry standard vector graphics application. Ideal for logos,
+                            icons, vector illustrations, and high-quality print designs.</p>
+                        <div class="bento-card-tags">
+                            <span class="bento-card-tag">Vector Art</span>
+                            <span class="bento-card-tag">Iconography</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- CorelDRAW Bento Card -->
+                <div class="bento-card" id="bento-cdr">
+                    <!-- Boot Overlay -->
+                    <div class="card-boot-overlay" id="boot-overlay-cdr">
+                        <div class="card-boot-content">
+                            <div class="card-boot-logo">
+                                <img src="Assets/All Tools Logos/Corel Draw.png" alt="CorelDRAW">
+                            </div>
+                            <span class="card-boot-title">CorelDRAW</span>
+                            <div class="card-boot-track">
+                                <div class="card-boot-fill" id="boot-fill-cdr"></div>
+                            </div>
+                            <span class="card-boot-status" id="boot-status-cdr">Setting guidelines...</span>
+                        </div>
+                    </div>
+
+                    <div class="bento-card-header">
+                        <div class="bento-card-info">
+                            <div class="bento-card-logo">
+                                <img src="Assets/All Tools Logos/Corel Draw.png" alt="CorelDRAW">
+                            </div>
+                            <span class="bento-card-title">CorelDRAW</span>
+                        </div>
+                        <span class="bento-card-mastery">80%</span>
+                    </div>
+                    <div class="bento-card-playground">
+                        <div class="widget-cdr">
+                            <div class="corel-canvas-bento" id="corelCanvasBento">
+                                <div class="corel-guide-h-bento" id="corelGuideHBento"></div>
+                                <div class="corel-guide-v-bento" id="corelGuideVBento"></div>
+                                <div class="corel-shape-bento" id="corelShapeBento"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bento-card-footer">
+                        <p class="bento-card-desc">High-precision vector design and layout program tailored for digital
+                            printing, signage, and publication layouts.</p>
+                        <div class="bento-card-tags">
+                            <span class="bento-card-tag">Print Layout</span>
+                            <span class="bento-card-tag">Signage Assets</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- MS Office Bento Card -->
+                <div class="bento-card" id="bento-office">
+                    <!-- Boot Overlay -->
+                    <div class="card-boot-overlay" id="boot-overlay-office">
+                        <div class="card-boot-content">
+                            <div class="card-boot-logo">
+                                <img src="Assets/All Tools Logos/MS Office.png" alt="Microsoft Office">
+                            </div>
+                            <span class="card-boot-title">MS Office</span>
+                            <div class="card-boot-track">
+                                <div class="card-boot-fill" id="boot-fill-office"></div>
+                            </div>
+                            <span class="card-boot-status" id="boot-status-office">Formatting presentation
+                                slides...</span>
+                        </div>
+                    </div>
+
+                    <div class="bento-card-header">
+                        <div class="bento-card-info">
+                            <div class="bento-card-logo">
+                                <img src="Assets/All Tools Logos/MS Office.png" alt="Microsoft Office">
+                            </div>
+                            <span class="bento-card-title">MS Office</span>
+                        </div>
+                        <span class="bento-card-mastery">85%</span>
+                    </div>
+                    <div class="bento-card-playground">
+                        <div class="widget-office">
+                            <div class="office-slide-bento">
+                                <div class="slide-item-bento active" data-slide-bento="0">
+                                    <h4>Design Pitch</h4>
+                                    <p>Focusing on story timing.</p>
+                                </div>
+                                <div class="slide-item-bento" data-slide-bento="1">
+                                    <h4>UX Flow</h4>
+                                    <p>Guiding viewer attention.</p>
+                                </div>
+                                <div class="slide-item-bento" data-slide-bento="2">
+                                    <h4>Branding</h4>
+                                    <p>Crafting identity guidelines.</p>
+                                </div>
+                            </div>
+                            <button class="office-btn-bento" id="officeSlideBtnBento">
+                                <span>Next Slide</span> ➔
+                            </button>
+                        </div>
+                    </div>
+                    <div class="bento-card-footer">
+                        <p class="bento-card-desc">Professional productivity suite utilized for business slide creation,
+                            deck formatting, data reporting, and client pitch preparation.</p>
+                        <div class="bento-card-tags">
+                            <span class="bento-card-tag">Slides</span>
+                            <span class="bento-card-tag">Strategy Decks</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Clients Testimonials Section -->
+    <section class="clients-section">
+        <div class="client-header">
+            <h1>What my Clients says...</h1>
+            <div class="slider-controls">
+                <button class="slider-btn prev-btn" id="clientPrevBtn" aria-label="Previous testimonials">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#FF7C00" stroke-width="2.5"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="19" y1="12" x2="5" y2="12"></line>
+                        <polyline points="12 19 5 12 12 5"></polyline>
+                    </svg>
+                </button>
+                <button class="slider-btn next-btn" id="clientNextBtn" aria-label="Next testimonials">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#FF7C00" stroke-width="2.5"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="5" y1="12" x2="19" y2="12"></line>
+                        <polyline points="12 5 19 12 12 19"></polyline>
+                    </svg>
+                </button>
+            </div>
+        </div>
+
+        <div class="client-cards-container" id="clientCardsContainer">
+            <!-- Testimonial 1 -->
+            <div class="client-card">
+                <div class="client-card-top-bar"></div>
+                <div class="client-avatar">SC</div>
+                <p class="client-testimonial">"Rishabh's motion graphics brought our brand to life! His attention to
+                    detail and ability to translate our abstract ideas into stunning visual animations was outstanding.
+                    Highly recommended!"</p>
+                <h3 class="client-name">Sahil Chaudhary</h3>
+            </div>
+
+            <!-- Testimonial 2 -->
+            <div class="client-card">
+                <div class="client-card-top-bar"></div>
+                <div class="client-avatar">MD</div>
+                <p class="client-testimonial">"Working with Rishabh was an absolute pleasure. He delivered the
+                    animations on time and exceeded our expectations in terms of creativity and polish. A truly talented
+                    designer."</p>
+                <h3 class="client-name">Mhel David</h3>
+            </div>
+
+            <!-- Testimonial 3 -->
+            <div class="client-card">
+                <div class="client-card-top-bar"></div>
+                <div class="client-avatar">NB</div>
+                <p class="client-testimonial">"The video edits and motion designs created by Rishabh were top-notch. He
+                    has a great eye for pacing, rhythm, and style. Our conversion rates went up significantly after
+                    launch!"</p>
+                <h3 class="client-name">Navjot Batti</h3>
+            </div>
+
+            <!-- Testimonial 4 -->
+            <div class="client-card">
+                <div class="client-card-top-bar"></div>
+                <div class="client-avatar">JS</div>
+                <p class="client-testimonial">"Exceptional skills in UI/UX and motion design. Rishabh helped refine our
+                    product interfaces and added dynamic transitions that greatly improved our user experience."</p>
+                <h3 class="client-name">John Smith</h3>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact-section" id="contact">
+        <div class="contact-container">
+            <!-- Left: Contact Form Card -->
+            <div class="contact-card-wrapper" id="contactCardWrapper">
+                <div class="contact-card">
+                    <form class="contact-form" id="contactForm">
+                        <div class="contact-input-group">
+                            <input type="text" id="contactName" name="name" placeholder="Write your Name!" required>
+                        </div>
+                        <div class="contact-input-group">
+                            <input type="email" id="contactEmail" name="email" placeholder="Your Mail ID" required>
+                        </div>
+                        <div class="contact-input-group">
+                            <textarea id="contactMessage" name="message" placeholder="Your Message" required></textarea>
+                        </div>
+                        <button type="submit" class="contact-btn" id="contactSubmitBtn">Send Message</button>
+                        <p id="contactStatus"
+                            style="margin-top:14px; font-size:0.95rem; font-weight:600; display:none;"></p>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Right: Text Content -->
+            <div class="contact-info" id="contactInfo">
+                <span class="query-tag">Any query?</span>
+                <h1><span>Contact Us</span></h1>
+                <p class="contact-desc">Let's collaborate to bring your visual ideas to life. Reach out for project
+                    inquiries, freelance opportunities, or just to say hello.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer class="footer-section">
+        <div class="footer-container">
+            <!-- Left: Brand Info -->
+            <div class="footer-brand">
+                <h2>Rishabh Raj</h2>
+                <p>A multidisciplinary motion designer and UI/UX developer crafting premium digital experiences through
+                    motion, visual strategy, and design engineering.</p>
+                <div class="footer-socials">
+                    <a href="https://www.behance.net/designsby_raj" target="_blank" class="social-icon-btn"
+                        aria-label="Behance">
+                        <svg viewBox="0 0 24 24">
+                            <path
+                                d="M22 13.5h-4c0-.83.67-1.5 1.5-1.5h1c.83 0 1.5.67 1.5 1.5zm-4.3-3.41c.23-.28.53-.49.9-.62.36-.13.78-.2 1.25-.2.53 0 .99.1 1.38.29.39.19.7.46.92.8.23.35.34.75.34 1.21v.58H16.27c0 .88.24 1.55.72 2.02.48.47 1.13.7 1.94.7.75 0 1.37-.17 1.86-.53.48-.35.79-.83.92-1.44h2.15c-.24 1.1-.79 1.96-1.63 2.56-.84.6-1.92.9-3.23.9-1.28 0-2.34-.38-3.18-1.14-.84-.76-1.26-1.85-1.26-3.26v-.66c0-1.42.4-2.5 1.21-3.24zm3.8-3.09v1h-3v-1h3zm-12.7 6.27V9h-3.8v3.27h3.8zm0-4.73V5.5h-3.8V8.5h3.8zM9.33 3c1.23 0 2.22.3 2.97.91.75.61 1.12 1.48 1.12 2.61 0 .61-.13 1.16-.4 1.63-.26.48-.65.86-1.17 1.14.65.23 1.15.62 1.5 1.16.35.53.53 1.21.53 2.03 0 1.24-.4 2.21-1.21 2.92C11.86 16.12 10.73 16.5 9.3 16.5H3V3h6.33z" />
+                        </svg>
+                    </a>
+                    <!-- <a href="https://dribbble.com" target="_blank" class="social-icon-btn" aria-label="Dribbble">
+                        <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm7.65 4.82c.42.59.77 1.24 1.03 1.93-1.41-.33-2.95-.49-4.57-.47-.19-.54-.4-1.07-.63-1.58 1.76-.23 3.21.05 4.17.12zm-8.87-1.9c.73.49 1.39 1.11 1.97 1.83-1.63.48-3.48.74-5.46.77.34-.99.88-1.87 1.58-2.6.59.39 1.23.83 1.91 1.23v-.03zm-4.32 4.14c1.92-.04 3.73-.29 5.31-.75.22.48.43.98.61 1.49-1.92.57-3.67 1.55-5.16 2.87-.55-1.07-.84-2.28-.76-3.61zm1.25 5.23c1.37-1.21 2.99-2.12 4.77-2.65.28.66.52 1.34.72 2.03-1.82.63-3.23 1.73-4.13 3.19-.74-.75-1.12-1.62-1.36-2.57zm5.55 3.12c.79-1.28 2.04-2.25 3.65-2.81.33.82.6 1.68.8 2.56-1.51.62-2.91 1.52-4.11 2.65-.18-.8-.32-1.6-.34-2.4zm5.83-1.62c-.18-.81-.43-1.6-.74-2.36 1.48-.05 2.89.09 4.15.42-.25.75-.62 1.45-1.1 2.08-.73-.08-1.53-.13-2.31-.14z"/></svg>
+                    </a> -->
+                    <a href="https://www.linkedin.com/in/rishabh-raj-sp/" target="_blank" class="social-icon-btn"
+                        aria-label="LinkedIn">
+                        <svg viewBox="0 0 24 24">
+                            <path
+                                d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
+                        </svg>
+                    </a>
+                    <a href="https://www.instagram.com/designsby_raj" target="_blank" class="social-icon-btn"
+                        aria-label="Instagram">
+                        <svg viewBox="0 0 24 24">
+                            <path
+                                d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.051.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z" />
+                        </svg>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Right: Links & Contact Details -->
+            <div class="footer-links-grid">
+                <div class="footer-col">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links-list">
+                        <li><a href="#explore">Showcase</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                        <li><a href="#works">Better inside</a></li>
+                        <li><a href="Rishabh Raj Graphic Designer Resume.pdf" target="_blank">Resume</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Get In Touch</h3>
+                    <div class="footer-contact-details">
+                        <a href="tel:+919264103787" class="footer-contact-item">
+                            <div class="footer-contact-icon">
+                                <svg viewBox="0 0 24 24">
+                                    <path
+                                        d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
+                                </svg>
+                            </div>
+                            <span>+91 92641-03787 (India / Whatsapp)</span>
+                        </a>
+                        <a href="tel:+16626425392" class="footer-contact-item">
+                            <div class="footer-contact-icon">
+                                <svg viewBox="0 0 24 24">
+                                    <path
+                                        d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
+                                </svg>
+                            </div>
+                            <span>+1 662-642-5392 (USA)</span>
+                        </a>
+                        <a href="mailto:rishabhraj.design@gmail.com" class="footer-contact-item">
+                            <div class="footer-contact-icon">
+                                <svg viewBox="0 0 24 24">
+                                    <path
+                                        d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+                                    <polyline points="22,6 12,13 2,6" />
+                                </svg>
+                            </div>
+                            <span>rishabhraj.design@gmail.com</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <span>© 2026 Rishabh Raj. All rights reserved.</span>
+            <span>Motion Designed & Coded with Passion</span>
+        </div>
+    </footer>
+
+
+    <script>
+        // Client slider controls
+        const prevBtn = document.getElementById('clientPrevBtn');
+        const nextBtn = document.getElementById('clientNextBtn');
+        if (prevBtn && nextBtn) {
+            prevBtn.addEventListener('click', () => {
+                const container = document.getElementById('clientCardsContainer');
+                if (container) container.scrollBy({ left: -410, behavior: 'smooth' });
+            });
+
+            nextBtn.addEventListener('click', () => {
+                const container = document.getElementById('clientCardsContainer');
+                if (container) container.scrollBy({ left: 410, behavior: 'smooth' });
+            });
+        }
+
+        // 3D Tilt Card Interaction
+        const cards = document.querySelectorAll('.premium-card');
+        cards.forEach(card => {
+            card.addEventListener('mousemove', (e) => {
+                const rect = card.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                const centerX = rect.width / 2;
+                const centerY = rect.height / 2;
+                // Subtle rotation maximum 5 degrees
+                const rotateX = ((centerY - y) / centerY) * 5;
+                const rotateY = ((x - centerX) / centerX) * 5;
+                card.style.transform = `translateY(-15px) rotate(2deg) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+            });
+
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = `translateY(0) rotate(0deg) rotateX(0deg) rotateY(0deg)`;
+            });
+        });
+
+        // Background Floating Particles
+        const particlesContainer = document.getElementById('particlesContainer');
+        if (particlesContainer) {
+            for (let i = 0; i < 15; i++) {
+                const particle = document.createElement('div');
+                particle.classList.add('particle');
+                particle.style.left = `${Math.random() * 100}%`;
+                particle.style.bottom = `-${Math.random() * 30}px`;
+                particle.style.animationDelay = `${Math.random() * 10}s`;
+                particle.style.animationDuration = `${7 + Math.random() * 8}s`;
+                particlesContainer.appendChild(particle);
+            }
+        }
+
+        // GSAP ScrollTrigger Animations (wrapped in try-catch to prevent layout locks if JS/CDN fails)
+        function initAnimations() {
+            try {
+                if (typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined') {
+                    console.warn("GSAP or ScrollTrigger CDNs could not be loaded. Fallback default layout active.");
+                    // Fallback to make progress bars visible by default if GSAP fails
+                    document.querySelectorAll('.progress-bar').forEach(bar => {
+                        bar.style.width = bar.getAttribute('data-target') || '0%';
+                    });
+                    return;
+                }
+
+                // Register ScrollTrigger
+                gsap.registerPlugin(ScrollTrigger);
+
+                // 1. Text splitting logic for EXPERIENCE heading
+                const expHeading = document.querySelector('.exp-top h1');
+                if (expHeading) {
+                    const text = expHeading.textContent.trim();
+                    expHeading.innerHTML = text.split('').map(letter => {
+                        if (letter === ' ') return '<span>&nbsp;</span>';
+                        return `<span class="char" style="display: inline-block;">${letter}</span>`;
+                    }).join('');
+                }
+
+                // 2. Timeline Animation for Experience Section
+                const expTimeline = gsap.timeline({
+                    scrollTrigger: {
+                        trigger: ".experience",
+                        start: "top 75%",
+                        toggleActions: "play none none none"
+                    }
+                });
+
+                // Slide letter characters individually
+                expTimeline.from(".exp-top h1 .char", {
+                    y: 100,
+                    opacity: 0,
+                    duration: 0.8,
+                    stagger: 0.06,
+                    ease: "back.out(1.7)"
+                });
+
+                // Center timeline line grows downwards
+                expTimeline.from("#timelineLine", {
+                    scaleY: 0,
+                    transformOrigin: "top center",
+                    duration: 1.2,
+                    ease: "power3.out"
+                }, "-=0.4");
+
+                // Left card entrance — no x-offset on mobile to prevent off-screen render
+                const isMobile = window.innerWidth <= 992;
+                expTimeline.from(".left-row .premium-card", {
+                    x: isMobile ? 0 : -120,
+                    y: 60,
+                    scale: 0.9,
+                    opacity: 0,
+                    duration: 1.2,
+                    ease: "elastic.out(1, 0.75)"
+                }, "-=0.9");
+
+                // Right card entrance
+                expTimeline.from(".right-row .premium-card", {
+                    x: isMobile ? 0 : 120,
+                    y: 60,
+                    scale: 0.9,
+                    opacity: 0,
+                    duration: 1.2,
+                    ease: "elastic.out(1, 0.75)"
+                }, "-=0.9");
+
+                // Pulse dots & year badges scale and glow
+                expTimeline.from(".timeline-badge-wrapper", {
+                    scale: 0,
+                    opacity: 0,
+                    duration: 0.6,
+                    stagger: 0.25,
+                    ease: "back.out(2)"
+                }, "-=0.7");
+
+                // Card skills items stagger reveal
+                expTimeline.from(".card-skills-list li", {
+                    x: -25,
+                    opacity: 0,
+                    stagger: 0.08,
+                    duration: 0.5,
+                    ease: "power2.out"
+                }, "-=0.5");
+
+                // 3. Software Boot-up & Bento Grid Entrance Animation
+                const softTimeline = gsap.timeline({
+                    scrollTrigger: {
+                        trigger: ".software-section",
+                        start: "top 75%",
+                        toggleActions: "play none none none"
+                    }
+                });
+
+                // Workspace Reveal Animation (Bento Grid Open)
+                softTimeline.to(".bento-header", {
+                    opacity: 1,
+                    y: 0,
+                    duration: 0.8,
+                    ease: "power3.out"
+                });
+
+                softTimeline.to(".bento-grid", {
+                    opacity: 1,
+                    y: 0,
+                    duration: 0.8,
+                    ease: "power3.out"
+                }, "-=0.8");
+
+                // Staggered card entry and boot triggers
+                const cards = document.querySelectorAll(".bento-card");
+                cards.forEach((card, idx) => {
+                    const id = card.id.replace("bento-", "");
+                    softTimeline.from(card, {
+                        scale: 0.85,
+                        opacity: 0,
+                        y: 50,
+                        duration: 1.0,
+                        ease: "back.out(1.5)",
+                        onStart: () => {
+                            bootCard(id);
+                        }
+                    }, idx === 0 ? "-=0.6" : "-=0.92");
+                });
+
+                // 4. Contact Section ScrollTrigger Animation
+                const contactTimeline = gsap.timeline({
+                    scrollTrigger: {
+                        trigger: ".contact-section",
+                        start: "top 75%",
+                        toggleActions: "play none none none"
+                    }
+                });
+
+                contactTimeline.to("#contactInfo", {
+                    opacity: 1,
+                    y: 0,
+                    duration: 0.8,
+                    ease: "power3.out"
+                });
+
+                contactTimeline.to("#contactCardWrapper", {
+                    opacity: 1,
+                    y: 0,
+                    duration: 0.8,
+                    ease: "power3.out"
+                }, "-=0.6");
+
+            } catch (err) {
+                console.error("Error initializing animations: ", err);
+            }
+        }
+
+        // Data and helper for individual card boot sequences
+        const bootData = {
+            ae: {
+                duration: 1.3,
+                steps: ["Loading composition layout...", "Initializing graph editor...", "Caching render frames...", "AE Ready!"]
+            },
+            figma: {
+                duration: 1.1,
+                steps: ["Syncing design system...", "Loading typography styles...", "Assembling prototype nodes...", "Figma Ready!"]
+            },
+            ps: {
+                duration: 1.5,
+                steps: ["Loading brush presets...", "Reading raster layer data...", "Applying visual blending...", "PS Ready!"]
+            },
+            ai: {
+                duration: 1.2,
+                steps: ["Reading vector paths...", "Mapping bezier control points...", "Initializing vector engines...", "AI Ready!"]
+            },
+            cdr: {
+                duration: 1.4,
+                steps: ["Setting guidelines...", "Aligning workspace grids...", "Initializing print presets...", "CorelDRAW Ready!"]
+            },
+            office: {
+                duration: 0.9,
+                steps: ["Formatting presentation slides...", "Mapping layout outline nodes...", "Caching content assets...", "Office Ready!"]
+            }
+        };
+
+        function bootCard(id) {
+            const data = bootData[id];
+            if (!data) return;
+
+            const fill = document.getElementById(`boot-fill-${id}`);
+            const status = document.getElementById(`boot-status-${id}`);
+            const overlay = document.getElementById(`boot-overlay-${id}`);
+            if (!fill || !status || !overlay) return;
+
+            const tl = gsap.timeline();
+            tl.to(fill, {
+                width: "100%",
+                duration: data.duration,
+                ease: "power1.inOut"
+            });
+
+            data.steps.forEach((step, idx) => {
+                const time = (data.duration / data.steps.length) * idx;
+                tl.to(status, {
+                    onStart: () => { status.textContent = step; }
+                }, time);
+            });
+
+            tl.to(overlay, {
+                opacity: 0,
+                duration: 0.4,
+                ease: "power2.out",
+                onComplete: () => {
+                    overlay.style.display = 'none';
+                }
+            });
+        }
+
+        // Initialize All Bento Card Interactive Playgrounds
+        function initBentoPlaygrounds() {
+            // 1. After Effects Slider Scrubber Interaction
+            const scrubber = document.getElementById('aeScrubberBento');
+            const aeCircle = document.getElementById('aeCircleBento');
+            if (scrubber && aeCircle) {
+                scrubber.addEventListener('input', (e) => {
+                    const val = parseInt(e.target.value);
+                    aeCircle.style.transform = `scale(${1 + val * 0.008}) translateY(${-val * 0.35}px)`;
+                    aeCircle.style.opacity = `${0.4 + (val * 0.006)}`;
+                });
+            }
+
+            // 2. Photoshop Layers Toggle
+            const glowCheck = document.getElementById('toggleGlowBento');
+            const subjectCheck = document.getElementById('toggleSubjectBento');
+            const bgCheck = document.getElementById('toggleBgBento');
+
+            const glowLayer = document.getElementById('psLayerGlowBento');
+            const subjectLayer = document.getElementById('psLayerSubjectBento');
+            const bgLayer = document.getElementById('psLayerBgBento');
+
+            if (glowCheck && glowLayer) glowCheck.addEventListener('change', (e) => glowLayer.style.opacity = e.target.checked ? '1' : '0');
+            if (subjectCheck && subjectLayer) subjectCheck.addEventListener('change', (e) => subjectLayer.style.opacity = e.target.checked ? '1' : '0');
+            if (bgCheck && bgLayer) bgCheck.addEventListener('change', (e) => bgLayer.style.opacity = e.target.checked ? '1' : '0');
+
+            // 3. Illustrator Bezier Curve Bend Tracker
+            const svg = document.querySelector('.bezier-svg-bento');
+            if (svg) {
+                svg.addEventListener('mousemove', (e) => {
+                    const rect = svg.getBoundingClientRect();
+                    const mouseX = e.clientX - rect.left;
+                    const mouseY = e.clientY - rect.top;
+
+                    // Constrain points inside canvas area
+                    const x = Math.max(50, Math.min(350, mouseX));
+                    const y = Math.max(10, Math.min(100, mouseY));
+
+                    const handleLeft = document.getElementById('handleLeftBento');
+                    const handleRight = document.getElementById('handleRightBento');
+                    const path = document.getElementById('bezierPathBento');
+                    const lineLeft = document.getElementById('bezierLineLeftBento');
+                    const lineRight = document.getElementById('bezierLineRightBento');
+
+                    if (handleLeft && handleRight && path) {
+                        handleLeft.setAttribute('cx', x);
+                        handleLeft.setAttribute('cy', y);
+
+                        const mirroredX = 400 - x;
+                        handleRight.setAttribute('cx', mirroredX);
+                        handleRight.setAttribute('cy', y);
+
+                        if (lineLeft) {
+                            lineLeft.setAttribute('x2', x);
+                            lineLeft.setAttribute('y2', y);
+                        }
+                        if (lineRight) {
+                            lineRight.setAttribute('x2', mirroredX);
+                            lineRight.setAttribute('y2', y);
+                        }
+                        path.setAttribute('d', `M 100 80 C ${x} ${y}, ${mirroredX} ${y}, 300 80`);
+                    }
+                });
+            }
+
+            // 4. Corel DRAW Layout Grid Guides Shifting
+            const corelCanvas = document.getElementById('corelCanvasBento');
+            if (corelCanvas) {
+                corelCanvas.addEventListener('mousemove', (e) => {
+                    const rect = corelCanvas.getBoundingClientRect();
+                    const x = e.clientX - rect.left;
+                    const y = e.clientY - rect.top;
+
+                    const guideH = document.getElementById('corelGuideHBento');
+                    const guideV = document.getElementById('corelGuideVBento');
+                    const shape = document.getElementById('corelShapeBento');
+
+                    if (guideH) guideH.style.top = `${y}px`;
+                    if (guideV) guideV.style.left = `${x}px`;
+
+                    if (shape) {
+                        const angle = (x / rect.width) * 360;
+                        shape.style.transform = `rotate(${angle}deg)`;
+                    }
+                });
+            }
+
+            // 5. Office presentation slideshow carousel
+            let currentOfficeSlide = 0;
+            const officeSlides = document.querySelectorAll('.slide-item-bento');
+            const officeBtn = document.getElementById('officeSlideBtnBento');
+            if (officeBtn && officeSlides.length > 0) {
+                officeBtn.addEventListener('click', () => {
+                    officeSlides[currentOfficeSlide].classList.remove('active');
+                    currentOfficeSlide = (currentOfficeSlide + 1) % officeSlides.length;
+                    officeSlides[currentOfficeSlide].classList.add('active');
+                });
+            }
+        }
+
+        // Hero Entrance Animation Sequence (runs immediately on page load)
+        function animateHeroEntrance() {
+            const tl = gsap.timeline();
+
+            // 1. Reveal Navbar
+            tl.to(".navbar", {
+                opacity: 1,
+                y: 0,
+                duration: 0.8,
+                ease: "power3.out"
+            });
+
+            // 2. Reveal Tagline
+            tl.to(".herotextblock h4", {
+                opacity: 0.7,
+                y: 0,
+                duration: 0.8,
+                ease: "power3.out"
+            }, "-=0.5");
+
+            // 3. Animate name title
+            tl.to(".herotextblock h1", {
+                opacity: 1,
+                y: 0,
+                duration: 0.9,
+                ease: "power3.out"
+            }, "-=0.6");
+
+            // 4. Fade in and scale hero cutout image
+            tl.to(".heroimg img", {
+                opacity: 1,
+                scale: 1,
+                duration: 1.3,
+                ease: "power3.out"
+            }, "-=0.8");
+
+            // 5. Stagger hero buttons
+            tl.to(".herobtns button, .herobtns a", {
+                opacity: 1,
+                y: 0,
+                stagger: 0.1,
+                duration: 0.6,
+                ease: "power2.out"
+            }, "-=0.7");
+        }
+
+        // Robust window/DOMContentLoaded trigger
+        function bootstrapBento() {
+            initBentoPlaygrounds();
+            animateHeroEntrance();
+            if (document.readyState === 'loading') {
+                document.addEventListener('DOMContentLoaded', initAnimations);
+            } else {
+                initAnimations();
+            }
+        }
+
+        bootstrapBento();
+
+        // Recalculate ScrollTrigger markers once images load and layout settles
+        window.addEventListener('load', () => {
+            if (typeof ScrollTrigger !== 'undefined') {
+                ScrollTrigger.refresh();
+            }
+        });
+
+        // ─── FormSubmit.co Contact Form ──────────────────────────────────────────
+        (function () {
+            const ENDPOINT = 'https://formsubmit.co/ajax/rishabhraj.design@gmail.com';
+
+            const form = document.getElementById('contactForm');
+            const btn = document.getElementById('contactSubmitBtn');
+            const status = document.getElementById('contactStatus');
+
+            if (!form) return;
+
+            form.addEventListener('submit', function (e) {
+                e.preventDefault();
+
+                btn.disabled = true;
+                btn.textContent = 'Sending…';
+                status.style.display = 'none';
+
+                const data = new FormData(form);
+
+                fetch(ENDPOINT, {
+                    method: 'POST',
+                    body: data,
+                    headers: { 'Accept': 'application/json' }
+                })
+                    .then(function (res) {
+                        if (res.ok) {
+                            status.textContent = '✅ Message sent! I\'ll get back to you soon.';
+                            status.style.color = '#4ade80';
+                            status.style.display = 'block';
+                            form.reset();
+                        } else {
+                            return res.json().then(function (d) { throw d; });
+                        }
+                    })
+                    .catch(function (err) {
+                        console.error('Formspree error:', err);
+                        status.textContent = '❌ Oops! Something went wrong. Please try again.';
+                        status.style.color = '#f87171';
+                        status.style.display = 'block';
+                    })
+                    .finally(function () {
+                        btn.textContent = 'Send Message';
+                        btn.disabled = false;
+                    });
+            });
+        })();
+
+        // Hamburger Menu Toggle
+        (function() {
+            const hamburgerBtn = document.getElementById('hamburgerBtn');
+            const mobileNav = document.getElementById('mobileNav');
+
+            function openMobileNav() {
+                mobileNav.classList.add('open');
+                hamburgerBtn.classList.add('open');
+                hamburgerBtn.setAttribute('aria-label', 'Close navigation');
+                document.body.style.overflow = 'hidden';
+            }
+
+            window.closeMobileNav = function() {
+                mobileNav.classList.remove('open');
+                hamburgerBtn.classList.remove('open');
+                hamburgerBtn.setAttribute('aria-label', 'Open navigation');
+                document.body.style.overflow = '';
+            };
+
+            if (hamburgerBtn) {
+                hamburgerBtn.addEventListener('click', function() {
+                    if (mobileNav.classList.contains('open')) {
+                        closeMobileNav();
+                    } else {
+                        openMobileNav();
+                    }
+                });
+            }
+
+            // Close on overlay click (clicking outside the links)
+            if (mobileNav) {
+                mobileNav.addEventListener('click', function(e) {
+                    if (e.target === mobileNav) {
+                        closeMobileNav();
+                    }
+                });
+            }
+        })();
+
+        // Education Accordion (mobile only)
+        (function() {
+            const eduHead = document.getElementById('eduHead');
+            const eduWrapper = document.getElementById('eduTimelineWrapper');
+
+            if (!eduHead || !eduWrapper) return;
+
+            function isMobileView() {
+                return window.innerWidth <= 992;
+            }
+
+            function resetEducation() {
+                if (!isMobileView()) {
+                    // Desktop: always open, remove mobile classes
+                    eduWrapper.classList.add('open');
+                    eduHead.classList.remove('open');
+                } else {
+                    // Mobile: start collapsed
+                    eduWrapper.classList.remove('open');
+                    eduHead.classList.remove('open');
+                }
+            }
+
+            // Initial state
+            resetEducation();
+
+            eduHead.addEventListener('click', function() {
+                if (!isMobileView()) return; // no toggle on desktop
+                const isOpen = eduWrapper.classList.contains('open');
+                if (isOpen) {
+                    eduWrapper.classList.remove('open');
+                    eduHead.classList.remove('open');
+                } else {
+                    eduWrapper.classList.add('open');
+                    eduHead.classList.add('open');
+                }
+            });
+
+            // Re-evaluate on resize
+            window.addEventListener('resize', resetEducation);
+        })();
+    </script>
+</body>
+
+</html>
