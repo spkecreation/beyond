@@ -1866,6 +1866,8 @@
 
         .herobtns {
             justify-content: center;
+            display: grid;
+            grid-template-columns: 1fr;
         }
 
         /* Show hamburger, hide desktop nav */
@@ -1892,7 +1894,12 @@
 
         /* Hide hero image on mobile */
         .heroimg {
-            display: none;
+            /* display: none; */
+            order: -1;
+        }
+        .movingtape{
+            position: absolute;
+            bottom: 10px;
         }
 
         /* Hero text takes full width when image is hidden */
@@ -2413,7 +2420,7 @@
     }
 
     .heroimg img {
-        opacity: 0;
+        /* opacity: 0; */
         transform: scale(1.1);
         transform-origin: bottom center;
     }
