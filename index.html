@@ -494,14 +494,15 @@
     }
 
     .educationcard {
-        background: linear-gradient(135deg, #FF8400 0%, #FFC107 100%);
+        background: #08080a;
+        border-left: 1px solid rgba(255, 255, 255, 0.05);
         color: #fff;
         display: flex;
         align-items: center;
     }
 
     .edcard {
-        width: 70%;
+        width: 75%;
         margin: 70px;
     }
 
@@ -510,6 +511,10 @@
         font-weight: 700;
         letter-spacing: -1px;
         margin-bottom: 70px;
+        background: linear-gradient(90deg, #FF7C00 0%, #FFB800 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
     }
 
     .timeline {
@@ -523,9 +528,10 @@
         left: 11px;
         top: 10px;
         bottom: 10px;
-        width: 4px;
-        background: #111;
+        width: 3px;
+        background: linear-gradient(180deg, #FF7C00 0%, #FFB800 100%);
         border-radius: 10px;
+        box-shadow: 0 0 8px rgba(255, 124, 0, 0.3);
     }
 
     .timeline-item {
@@ -540,9 +546,11 @@
     }
 
     .timeline-dot {
-        width: 26px;
-        height: 26px;
-        background: #111;
+        width: 24px;
+        height: 24px;
+        background: #08080a;
+        border: 3px solid #FF7C00;
+        box-shadow: 0 0 10px rgba(255, 124, 0, 0.6);
         border-radius: 50%;
         flex-shrink: 0;
         z-index: 2;
@@ -561,21 +569,25 @@
 
     .year {
         font-size: 1.3rem;
-        font-weight: 700;
-        color: #fff;
+        font-weight: 800;
+        background: linear-gradient(90deg, #FF7C00 0%, #FFB800 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
         min-width: 120px;
     }
 
     .timeline-top h2 {
         font-size: 1.3rem;
-        font-weight: 300;
+        font-weight: 600;
+        color: #fff;
     }
 
     .timeline-content p {
         margin-top: 12px;
         font-size: 1rem;
         line-height: 1.45;
-        color: rgba(0, 0, 0, .72);
+        color: rgba(255, 255, 255, 0.65);
         max-width: 420px;
     }
 
@@ -633,6 +645,7 @@
         color: #fff;
         /* text-transform: uppercase; */
         display: inline-block;
+        white-space: nowrap;
     }
 
     /* Timeline Container and Alternate Grid */
@@ -1602,38 +1615,79 @@
     }
 
     @media (max-width: 768px) {
+        .timeline-line {
+            display: block !important;
+            left: 20px !important;
+            transform: none !important;
+            width: 2px;
+            background: linear-gradient(180deg, #FF7C00 0%, #FFB800 100%);
+        }
+
         .timeline-row {
-            grid-template-columns: 1fr;
-            gap: 30px;
-            margin-bottom: 50px;
+            display: block !important;
+            position: relative;
+            padding-left: 45px !important;
+            margin-bottom: 50px !important;
+            width: 100%;
         }
 
         .timeline-col-empty {
-            display: none;
+            display: none !important;
         }
 
         .timeline-col-center {
-            display: none;
+            display: none !important;
         }
 
         .left-row .timeline-col-card,
         .right-row .timeline-col-card {
-            align-items: flex-start;
-            text-align: left;
+            align-items: flex-start !important;
+            text-align: left !important;
         }
 
         .left-row .timeline-badge-wrapper,
         .right-row .timeline-badge-wrapper {
-            flex-direction: row;
+            flex-direction: row !important;
+            gap: 12px;
+            margin-bottom: 12px !important;
+            width: 100%;
+            position: relative;
         }
 
-        .timeline-line {
-            display: none;
-            /* Hide line on small viewports */
+        .timeline-dot-pulse {
+            position: absolute !important;
+            left: -30px !important;
+            top: 6px !important;
+            z-index: 3;
+        }
+
+        .timeline-year {
+            font-size: 1.1rem !important;
+            font-weight: 800;
+            color: #fff;
+            display: flex;
+            align-items: center;
+            gap: 10px;
         }
 
         .premium-card {
-            max-width: 100%;
+            max-width: 100% !important;
+            padding: 25px !important;
+            border-radius: 20px !important;
+        }
+
+        .card-icon-wrap {
+            width: 48px !important;
+            height: 48px !important;
+            margin-bottom: 18px !important;
+        }
+
+        .card-title {
+            font-size: 1.35rem !important;
+        }
+
+        .card-company {
+            font-size: 1.05rem !important;
         }
     }
 
@@ -1832,6 +1886,8 @@
 
         .educationcard {
             padding: 40px 0;
+            border-left: none;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
         }
 
         .edcard {
@@ -1913,36 +1969,7 @@
             width: 100%;
         }
 
-        /* Education accordion collapsed state on mobile */
-        .edu-timeline-wrapper {
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.5s ease;
-        }
-
-        .edu-timeline-wrapper.open {
-            max-height: 1000px;
-        }
-
-        .edhead {
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            user-select: none;
-        }
-
-        .edu-toggle-icon {
-            font-size: 1.4rem;
-            font-weight: 300;
-            color: rgba(0,0,0,0.5);
-            transition: transform 0.4s ease;
-            line-height: 1;
-        }
-
-        .edhead.open .edu-toggle-icon {
-            transform: rotate(45deg);
-        }
+        /* Education accordion removed - content is now visible by default on mobile */
     }
 
     @media (max-width: 576px) {
@@ -2665,7 +2692,6 @@
 
                 <div class="edhead" id="eduHead">
                     <h1>Education</h1>
-                    <span class="edu-toggle-icon" id="eduToggleIcon">+</span>
                 </div>
 
                 <div class="edu-timeline-wrapper" id="eduTimelineWrapper">
@@ -3829,47 +3855,7 @@
             }
         })();
 
-        // Education Accordion (mobile only)
-        (function() {
-            const eduHead = document.getElementById('eduHead');
-            const eduWrapper = document.getElementById('eduTimelineWrapper');
-
-            if (!eduHead || !eduWrapper) return;
-
-            function isMobileView() {
-                return window.innerWidth <= 992;
-            }
-
-            function resetEducation() {
-                if (!isMobileView()) {
-                    // Desktop: always open, remove mobile classes
-                    eduWrapper.classList.add('open');
-                    eduHead.classList.remove('open');
-                } else {
-                    // Mobile: start collapsed
-                    eduWrapper.classList.remove('open');
-                    eduHead.classList.remove('open');
-                }
-            }
-
-            // Initial state
-            resetEducation();
-
-            eduHead.addEventListener('click', function() {
-                if (!isMobileView()) return; // no toggle on desktop
-                const isOpen = eduWrapper.classList.contains('open');
-                if (isOpen) {
-                    eduWrapper.classList.remove('open');
-                    eduHead.classList.remove('open');
-                } else {
-                    eduWrapper.classList.add('open');
-                    eduHead.classList.add('open');
-                }
-            });
-
-            // Re-evaluate on resize
-            window.addEventListener('resize', resetEducation);
-        })();
+        // Education Accordion logic removed to keep timeline visible on mobile
     </script>
 </body>
 
